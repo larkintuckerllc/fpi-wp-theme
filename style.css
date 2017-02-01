@@ -1,0 +1,50 @@
+/*
+Theme Name: fpi
+Theme URI: https://fpi.com
+Author: John Tucker
+Author URI: https://fpi.com
+Description: fpi
+Version: 0.0.1
+License: TBD
+License URI: https://fpi.com
+Tags: fpi
+Text Domain: fpi
+
+This theme is for the fpi site.
+*/
+
+/* Agent Overrides*/
+:focus {
+  outline: none !important;
+}
+
+/* Wordpress Overrides */
+img.alignleft, img.alignright, img.aligncenter {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 10px !important;
+  height: auto !important;
+  max-width: 100% !important;
+}
+
+/* Bootstrap Overrides */
+.btn:focus, .btn:active, button:focus, button:active {
+  outline: none !important;
+}
+.navbar-brand {
+  padding: 6.5px 15px !important;
+}
+.navbar {
+  margin-bottom: 0px !important;
+}
+@media (min-width: 768px) {
+  img.alignright {
+     float: right !important;
+     margin-left: 10px !important;
+  }
+  .alignleft {
+     float: left !important;
+     margin-right: 10px !important;
+  }
+}
