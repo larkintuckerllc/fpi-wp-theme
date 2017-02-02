@@ -32,9 +32,6 @@ img.alignleft, img.alignright, img.aligncenter {
 .btn:focus, .btn:active, button:focus, button:active {
   outline: none !important;
 }
-.navbar-brand {
-  padding: 6.5px 15px !important;
-}
 .navbar {
   margin-bottom: 0px !important;
 }
