@@ -13,6 +13,23 @@
   }
   add_action('wp_enqueue_scripts', 'add_global_scores_theme_scripts');
 ?>
+<?php
+  $indicators = array();
+  $args = array(
+    'post_type' => 'fpi_indicator',
+    'posts_per_page' => -1,
+  );
+  $loop = new WP_Query( $args );
+  while ( $loop->have_posts() ) : $loop->the_post();
+    $indicators[] = array(
+      'id' => get_the_ID(),
+      'title' => get_field('title') ,
+      'latitude' => get_field('latitude') ,
+      'longitude' => get_field('longitude') ,
+    );
+  endwhile;
+  wp_reset_query();
+?>
 <?php get_header(); ?>
 <?php while (have_posts()) : the_post(); ?>
   <div class="container">
@@ -23,6 +40,7 @@
     After
   </div>
   <script>
+    window.indicators = <?php echo json_encode( $indicators ); ?>;
     window.baseUrl = '<?php echo get_template_directory_uri(); ?>/global-scores/dist/';
   </script>
   <?php get_footer(); ?>

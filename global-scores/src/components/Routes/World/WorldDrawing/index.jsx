@@ -3,7 +3,6 @@ import * as d3Core from 'd3';
 import * as d3Geo from 'd3-geo';
 import { MIN_SCALE, MAX_SCALE } from '../../../../strings';
 import './world-countries.json';
-import './fisheries.json';
 import styles from './index.scss';
 
 const CIRCLE_RADIUS = 0.75;
@@ -23,7 +22,7 @@ class WorldDrawing extends Component {
     this.handleWheel = this.handleWheel.bind(this);
   }
   componentDidMount() {
-    const { rotation, scale, selected, setSelected } = this.props;
+    const { indicators, rotation, scale, selected, setSelected } = this.props;
     this.rootEl = d3.select(`#${styles.root}`);
     this.rootSpaceEl = this.rootEl.append('rect')
       .attr('x', -1 * RADIUS)
@@ -37,7 +36,7 @@ class WorldDrawing extends Component {
       .attr('r', RADIUS)
       .attr('id', styles.rootGlobe);
     const rootCountriesEl = this.rootEl.append('g');
-    const rootFisheriesEl = this.rootEl.append('g');
+    const rootIndicatorsEl = this.rootEl.append('g');
     this.projection = d3
       .geoOrthographic()
       .translate([0, 0])
@@ -56,39 +55,37 @@ class WorldDrawing extends Component {
         rootCountriesEl
         .selectAll(`.${styles.rootCountriesFeature}`)
         .data(countries.features);
-      d3.json(`${window.baseUrl}fisheries.json`, fisheries => {
-        const fisheriesWithGeoJSON = fisheries.map(o => (
-          { fishery: o, geoJSON: circle.center([o.latlng[1], o.latlng[0]]).radius(CIRCLE_RADIUS)() }
-        ));
-        rootFisheriesEl
-          .selectAll(`.${styles.rootFisheriesFeature}`)
-          .data(fisheriesWithGeoJSON)
-          .enter()
-          .append('path')
-          .attr('class', d => (
-            selected !== null && selected.id === d.fishery.id ?
-              `${styles.rootFisheriesFeature} ${styles.rootFisheriesFeatureSelected}` :
-              styles.rootFisheriesFeature
-          ))
-          .attr('d', d => this.path(d.geoJSON))
-          .on('click', d => {
-            if (this.mousePanned) return;
-            setSelected(d.fishery);
-          });
-        this.rootFisheriesElSelection =
-          rootFisheriesEl
-          .selectAll(`.${styles.rootFisheriesFeature}`)
-          .data(fisheriesWithGeoJSON);
-        this.d3Render(rotation, scale, selected);
-        this.rootEl.on('mousedown', this.handleMouseDown);
-        this.rootEl.on('mousemove', this.handleMouseMove);
-        this.rootEl.on('mouseup', this.handleMouseUp);
-        this.rootEl.on('mouseleave', this.handleMouseUp);
-        this.rootEl.on('touchstart', this.handleTouchStart);
-        this.rootEl.on('touchmove', this.handleTouchMove);
-        this.rootEl.on('touchend', this.handleTouchEnd);
-        this.rootEl.on('wheel', this.handleWheel);
-      });
+      const indicatorsWithGeoJSON = indicators.map(o => (
+        { indicator: o, geoJSON: circle.center([o.latitude, o.longitude]).radius(CIRCLE_RADIUS)() }
+      ));
+      rootIndicatorsEl
+        .selectAll(`.${styles.rootIndicatorsFeature}`)
+        .data(indicatorsWithGeoJSON)
+        .enter()
+        .append('path')
+        .attr('d', d => this.path(d.geoJSON))
+        .attr('class', d => (
+          d.indicator.id === selected ?
+            `${styles.rootIndicatorsFeature} ${styles.rootIndicatorsFeatureSelected}` :
+            styles.rootIndicatorsFeature
+        ))
+        .on('click', d => {
+          if (this.mousePanned) return;
+          setSelected(d.indicator.id);
+        });
+      this.rootIndicatorsElSelection = rootIndicatorsEl
+        .selectAll(`.${styles.rootIndicatorsFeature}`)
+        .data(indicatorsWithGeoJSON);
+      this.d3Render(rotation, scale, selected);
+      this.d3Render(rotation, scale);
+      this.rootEl.on('mousedown', this.handleMouseDown);
+      this.rootEl.on('mousemove', this.handleMouseMove);
+      this.rootEl.on('mouseup', this.handleMouseUp);
+      this.rootEl.on('mouseleave', this.handleMouseUp);
+      this.rootEl.on('touchstart', this.handleTouchStart);
+      this.rootEl.on('touchmove', this.handleTouchMove);
+      this.rootEl.on('touchend', this.handleTouchEnd);
+      this.rootEl.on('wheel', this.handleWheel);
     });
   }
   componentWillReceiveProps({ rotation, scale, selected }) {
@@ -117,13 +114,13 @@ class WorldDrawing extends Component {
       this.rootCountriesElSelection
         .attr('style', `stroke-width: ${scale * 0.25}`)
         .attr('d', d => this.path(d));
-      this.rootFisheriesElSelection
+      this.rootIndicatorsElSelection
+        .attr('d', d => this.path(d.geoJSON))
         .attr('class', d => (
-          selected !== null && selected.id === d.fishery.id ?
-          `${styles.rootFisheriesFeature} ${styles.rootFisheriesFeatureSelected}` :
-          styles.rootFisheriesFeature
-        ))
-        .attr('d', d => this.path(d.geoJSON));
+          d.indicator.id === selected ?
+            `${styles.rootIndicatorsFeature} ${styles.rootIndicatorsFeatureSelected}` :
+            styles.rootIndicatorsFeature
+        ));
     });
   }
   handleMouseDown() {
@@ -212,6 +209,7 @@ class WorldDrawing extends Component {
   }
 }
 WorldDrawing.propTypes = {
+  indicators: PropTypes.array.isRequired,
   removeSelected: PropTypes.func.isRequired,
   rotation: PropTypes.array.isRequired,
   scale: PropTypes.number.isRequired,

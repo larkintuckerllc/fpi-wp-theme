@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { getIndicators } from '../../../ducks/indicators';
 import * as fromRotation from '../../../ducks/rotation';
 import * as fromScale from '../../../ducks/scale';
 import * as fromSelected from '../../../ducks/selected';
@@ -9,6 +10,7 @@ import WorldControls from './WorldControls';
 import WorldSnackbar from './WorldSnackbar';
 
 const World = ({
+  indicators,
   removeSelected,
   rotation,
   scale,
@@ -19,6 +21,7 @@ const World = ({
 }) => (
   <WorldView>
     <WorldDrawing
+      indicators={indicators}
       removeSelected={removeSelected}
       rotation={rotation}
       scale={scale}
@@ -38,6 +41,7 @@ const World = ({
   </WorldView>
 );
 World.propTypes = {
+  indicators: PropTypes.array.isRequired,
   removeSelected: PropTypes.func.isRequired,
   rotation: PropTypes.array.isRequired,
   setRotation: PropTypes.func.isRequired,
@@ -48,6 +52,7 @@ World.propTypes = {
 };
 export default connect(
   (state) => ({
+    indicators: getIndicators(state),
     rotation: fromRotation.getRotation(state),
     scale: fromScale.getScale(state),
     selected: fromSelected.getSelected(state),

@@ -19,7 +19,7 @@ export default (state = null, action) => {
 export const getSelected = (state) => state[reducerMountPoint];
 // ACTION CREATOR VALIDATORS
 const validSelected = value =>
-  !(value === undefined || typeof value !== 'object');
+  !(value === undefined || typeof value !== 'number');
 // ACTION CREATORS
 export const setSelected = (value) => {
   if (!validSelected(value)) throw new Error();

@@ -1,4 +1,16 @@
 <?php
+  function create_post_type() {
+    register_post_type( 'fpi_indicator',
+      array(
+        'labels' => array(
+          'name' => __( 'Indicators' ),
+          'singular_name' => __( 'Indicator' )
+        ),
+        'public' => true,
+        'has_archive' => false,
+      )
+    );
+  }
   function add_theme_scripts() {
     wp_deregister_script( 'jquery' );
     wp_register_style('bootstrap',
@@ -25,5 +37,6 @@
     register_nav_menu('tool-menu',__( 'Tool Menu' ));
   }
   add_action('wp_enqueue_scripts', 'add_theme_scripts');
+  add_action( 'init', 'create_post_type' );
   add_action( 'init', 'register_my_menus' );
 // REMOVED CLOSING TAG PER WP CODING STANDARDS
