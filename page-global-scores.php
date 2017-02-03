@@ -23,9 +23,12 @@
   while ( $loop->have_posts() ) : $loop->the_post();
     $indicators[] = array(
       'id' => get_the_ID(),
-      'title' => get_field('title') ,
-      'latitude' => get_field('latitude') ,
-      'longitude' => get_field('longitude') ,
+      'title' => get_field('title'),
+      'latitude' => get_field('latitude'),
+      'longitude' => get_field('longitude'),
+      'ecological' => get_field('ecological'),
+      'economic' => get_field('economic'),
+      'community' => get_field('community')
     );
   endwhile;
   wp_reset_query();

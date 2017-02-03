@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { getIndicator } from '../../../../ducks/indicators';
 import styles from './index.scss';
 
 const scaleWidth = v => 100 * ((v - 1) / 5);
@@ -7,23 +9,23 @@ const scaleColor = v => {
   if (v >= 3) return 'yellow';
   return 'red';
 };
-const WorldSnackbar = ({ selected }) => (
+const WorldSnackbar = ({ indicator }) => (
   <div
     id={styles.root}
-    style={{ transform: selected === null ? 'translateY(130px)' : 'translateY(0px)' }}
+    style={{ transform: indicator === null ? 'translateY(130px)' : 'translateY(0px)' }}
   >
-    { selected !== null &&
+    { indicator !== null &&
       <div id={styles.rootContainer}>
+        { window.console.log(indicator) }
         <img
           id={styles.rootContainerLeft}
           width="165"
           height="110"
-          src={`${window.baseUrl}data/img/${selected.id}.jpg`}
-          alt="wagu_lobster"
+          alt="TODO"
         />
         <div id={styles.rootContainerRight}>
           <div id={styles.rootContainerRightTitle}>
-            {selected.title}
+            {indicator.title}
           </div>
           <div className={styles.rootContainerRightIndicator}>
             <div className={styles.rootContainerRightIndicatorTitle}>Ecological</div>
@@ -31,8 +33,8 @@ const WorldSnackbar = ({ selected }) => (
               <div
                 className={styles.rootContainerRightIndicatorValueScale}
                 style={{
-                  width: `${scaleWidth(selected.ecology)}%`,
-                  backgroundColor: scaleColor(selected.ecology),
+                  width: `${scaleWidth(Number(indicator.ecological))}%`,
+                  backgroundColor: scaleColor(Number(indicator.ecological)),
                 }}
               />
             </div>
@@ -43,8 +45,8 @@ const WorldSnackbar = ({ selected }) => (
               <div
                 className={styles.rootContainerRightIndicatorValueScale}
                 style={{
-                  width: `${scaleWidth(selected.economic)}%`,
-                  backgroundColor: scaleColor(selected.economic),
+                  width: `${scaleWidth(Number(indicator.economic))}%`,
+                  backgroundColor: scaleColor(Number(indicator.economic)),
                 }}
               />
             </div>
@@ -55,8 +57,8 @@ const WorldSnackbar = ({ selected }) => (
               <div
                 className={styles.rootContainerRightIndicatorValueScale}
                 style={{
-                  width: `${scaleWidth(selected.community)}%`,
-                  backgroundColor: scaleColor(selected.community),
+                  width: `${scaleWidth(Number(indicator.community))}%`,
+                  backgroundColor: scaleColor(Number(indicator.community)),
                 }}
               />
             </div>
@@ -67,6 +69,13 @@ const WorldSnackbar = ({ selected }) => (
   </div>
 );
 WorldSnackbar.propTypes = {
-  selected: PropTypes.object,
+  indicator: PropTypes.object,
 };
-export default WorldSnackbar;
+export default connect(
+  (state, ownProps) => ({
+    indicator: ownProps.selected !== null ?
+      getIndicator(state, ownProps.selected) :
+      null,
+  }),
+  null
+)(WorldSnackbar);

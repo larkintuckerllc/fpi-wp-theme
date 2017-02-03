@@ -56,7 +56,10 @@ class WorldDrawing extends Component {
         .selectAll(`.${styles.rootCountriesFeature}`)
         .data(countries.features);
       const indicatorsWithGeoJSON = indicators.map(o => (
-        { indicator: o, geoJSON: circle.center([o.latitude, o.longitude]).radius(CIRCLE_RADIUS)() }
+        {
+          indicator: o,
+          geoJSON: circle.center([Number(o.latitude), Number(o.longitude)]).radius(CIRCLE_RADIUS)(),
+        }
       ));
       rootIndicatorsEl
         .selectAll(`.${styles.rootIndicatorsFeature}`)
@@ -213,7 +216,7 @@ WorldDrawing.propTypes = {
   removeSelected: PropTypes.func.isRequired,
   rotation: PropTypes.array.isRequired,
   scale: PropTypes.number.isRequired,
-  selected: PropTypes.object,
+  selected: PropTypes.number,
   setRotation: PropTypes.func.isRequired,
   setScale: PropTypes.func.isRequired,
   setSelected: PropTypes.func.isRequired,

@@ -46,7 +46,7 @@ World.propTypes = {
   rotation: PropTypes.array.isRequired,
   setRotation: PropTypes.func.isRequired,
   scale: PropTypes.number.isRequired,
-  selected: PropTypes.object,
+  selected: PropTypes.number,
   setScale: PropTypes.func.isRequired,
   setSelected: PropTypes.func.isRequired,
 };
