@@ -16,12 +16,12 @@ const WorldSnackbar = ({ indicator }) => (
   >
     { indicator !== null &&
       <div id={styles.rootContainer}>
-        { window.console.log(indicator) }
         <img
           id={styles.rootContainerLeft}
           width="165"
           height="110"
-          alt="TODO"
+          src={indicator.image}
+          alt="thumbnail"
         />
         <div id={styles.rootContainerRight}>
           <div id={styles.rootContainerRightTitle}>

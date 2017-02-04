@@ -24,6 +24,7 @@
     $indicators[] = array(
       'id' => get_the_ID(),
       'title' => get_field('title'),
+      'image' => get_field('image'),
       'latitude' => get_field('latitude'),
       'longitude' => get_field('longitude'),
       'ecological' => get_field('ecological'),
