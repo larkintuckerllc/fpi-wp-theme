@@ -58,7 +58,7 @@ class WorldDrawing extends Component {
       const indicatorsWithGeoJSON = indicators.map(o => (
         {
           indicator: o,
-          geoJSON: circle.center([Number(o.latitude), Number(o.longitude)]).radius(CIRCLE_RADIUS)(),
+          geoJSON: circle.center([Number(o.longitude), Number(o.latitude)]).radius(CIRCLE_RADIUS)(),
         }
       ));
       rootIndicatorsEl
