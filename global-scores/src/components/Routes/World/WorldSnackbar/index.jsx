@@ -22,7 +22,7 @@ const WorldSnackbar = ({ indicator }) => (
         />
         <div id={styles.rootContainerRight}>
           <div id={styles.rootContainerRightTitle}>
-            {indicator.name}
+            <a href={indicator.link}>{indicator.name}</a>
           </div>
           <div className={styles.rootContainerRightIndicator}>
             <div className={styles.rootContainerRightIndicatorTitle}>Ecological</div>

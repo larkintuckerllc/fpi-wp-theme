@@ -23,6 +23,7 @@
   while ( $loop->have_posts() ) : $loop->the_post();
     $indicators[] = array(
       'id' => get_the_ID(),
+      'link' => get_permalink(),
       'name' => get_field('name'),
       'image' => get_field('image'),
       'latitude' => get_field('latitude'),
