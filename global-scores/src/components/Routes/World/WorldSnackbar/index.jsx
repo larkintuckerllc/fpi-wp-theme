@@ -16,16 +16,13 @@ const WorldSnackbar = ({ indicator }) => (
   >
     { indicator !== null &&
       <div id={styles.rootContainer}>
-        <img
+        <div
           id={styles.rootContainerLeft}
-          width="165"
-          height="110"
-          src={indicator.image}
-          alt="thumbnail"
+          style={{ backgroundImage: `url(${indicator.image})` }}
         />
         <div id={styles.rootContainerRight}>
           <div id={styles.rootContainerRightTitle}>
-            {indicator.title}
+            {indicator.name}
           </div>
           <div className={styles.rootContainerRightIndicator}>
             <div className={styles.rootContainerRightIndicatorTitle}>Ecological</div>
