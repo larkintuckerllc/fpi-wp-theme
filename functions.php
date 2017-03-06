@@ -22,12 +22,12 @@
     );
     if( function_exists( 'register_field_group' ) ) {
     	register_field_group(array (
-    		'id' => 'acf_fpi-indicator',
-    		'key' => 'acf_fpi-indicator',
+    		'id' => 'acf_fpi_indicator',
+    		'key' => 'acf_fpi_indicator',
     		'title' => 'FPI Indicator',
     		'fields' => array (
     			array (
-    				'key' => 'field_58bd7f2ed0e8b',
+    				'key' => 'field_fpi_indicator_name',
     				'label' => 'Name',
     				'name' => 'name',
     				'type' => 'text',
@@ -41,7 +41,7 @@
     				'maxlength' => '',
     			),
     			array (
-    				'key' => 'field_58bd7dbef7699',
+    				'key' => 'field_fpi_indicator_image',
     				'label' => 'Image',
     				'name' => 'image',
     				'type' => 'image',
@@ -52,7 +52,7 @@
     				'library' => 'all',
     			),
     			array (
-    				'key' => 'field_58bd7df2f769a',
+    				'key' => 'field_fpi_indicator_latitide',
     				'label' => 'Latitude',
     				'name' => 'latitude',
     				'type' => 'number',
@@ -67,7 +67,7 @@
     				'step' => '',
     			),
     			array (
-    				'key' => 'field_58bd7e14f769b',
+    				'key' => 'field_fpi_indicator_longitude',
     				'label' => 'Longitude',
     				'name' => 'longitude',
     				'type' => 'number',
@@ -82,7 +82,7 @@
     				'step' => '',
     			),
     			array (
-    				'key' => 'field_58bd7e4af769c',
+    				'key' => 'field_fpi_indicator_ecological',
     				'label' => 'Ecological',
     				'name' => 'ecological',
     				'type' => 'number',
@@ -97,7 +97,7 @@
     				'step' => '',
     			),
     			array (
-    				'key' => 'field_58bd7e6ff769d',
+    				'key' => 'field_fpi_indicator_economic',
     				'label' => 'Economic',
     				'name' => 'economic',
     				'type' => 'number',
@@ -112,7 +112,7 @@
     				'step' => '',
     			),
     			array (
-    				'key' => 'field_58bd7e87f769e',
+    				'key' => 'field_fpi_indicator_community',
     				'label' => 'Community',
     				'name' => 'community',
     				'type' => 'number',
