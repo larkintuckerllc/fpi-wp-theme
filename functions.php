@@ -161,6 +161,13 @@
     	));
     }
   }
+  function fpi_single_template( $single ) {
+		global $post;
+		if ($post->post_type == 'fpi_indicator'){
+			return  get_template_directory() . '/page_indicator.php';
+		}
+		return $single;
+	}
   function fpi_add_theme_scripts() {
     wp_deregister_script( 'jquery' );
     wp_register_style('bootstrap',
@@ -189,3 +196,4 @@
   add_action('wp_enqueue_scripts', 'fpi_add_theme_scripts');
   add_action( 'init', 'fpi_create_post_type' );
   add_action( 'init', 'fpi_register_my_menus' );
+  add_action( 'single_template', 'fpi_single_template');
