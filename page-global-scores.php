@@ -1,17 +1,17 @@
 <?php
-  function add_global_scores_theme_scripts() {
-    wp_register_script('global_scores_vendor',
+  function fpi_global_scores_add_scripts() {
+    wp_register_script('fpi_global_scores_vendor',
       get_template_directory_uri() .
       '/global-scores/dist/vendor.bundle.js',
       array(), '2017020101', true);
-    wp_register_script('global_scores_main',
+    wp_register_script('fpi_global_scores_main',
       get_template_directory_uri() .
       '/global-scores/dist/main.bundle.js',
-      array('global_scores_vendor'), '2017020101', true);
-    wp_enqueue_script('global_scores_vendor');
-    wp_enqueue_script('global_scores_main');
+      array('fpi_global_scores_vendor'), '2017020101', true);
+    wp_enqueue_script('fpi_global_scores_vendor');
+    wp_enqueue_script('fpi_global_scores_main');
   }
-  add_action('wp_enqueue_scripts', 'add_global_scores_theme_scripts');
+  add_action('wp_enqueue_scripts', 'fpi_global_scores_add_scripts');
 ?>
 <?php
   $indicators = array();
