@@ -3,18 +3,18 @@
   var $ = window.$;
   var d3 = window.d3;
   $(document).ready(function() {
-    var ecologicalEl = document.getElementById('fpi_indicator_root__indicator__value__scale--ecological');
-    var economicEl = document.getElementById('fpi_indicator_root__indicator__value__scale--economic');
-    var communityEl = document.getElementById('fpi_indicator_root__indicator__value__scale--community');
-    var rankEcologicalEl = document.getElementById('fpi_indicator_root__ranking__rank--ecological');
-    var rankEconomicEl = document.getElementById('fpi_indicator_root__ranking__rank--economic');
-    var rankCommunityEl = document.getElementById('fpi_indicator_root__ranking__rank--community');
-    var totalEcologicalEl = document.getElementById('fpi_indicator_root__ranking__total--ecological');
-    var totalEconomicEl = document.getElementById('fpi_indicator_root__ranking__total--economic');
-    var totalCommunityEl = document.getElementById('fpi_indicator_root__ranking__total--community');
-    var comparisonEcologicalD3 = d3.select('#fpi_indicator_root__comparison--ecological');
-    var comparisonEconomicD3 = d3.select('#fpi_indicator_root__comparison--economic');
-    var comparisonCommunityD3 = d3.select('#fpi_indicator_root__comparison--community');
+    var ecologicalEl = document.getElementById('fpi_indicator_root__content__data__indicator__value__scale--ecological');
+    var economicEl = document.getElementById('fpi_indicator_root__content__data__indicator__value__scale--economic');
+    var communityEl = document.getElementById('fpi_indicator_root__content__data__indicator__value__scale--community');
+    var rankEcologicalEl = document.getElementById('fpi_indicator_root__content__data__ranking__rank--ecological');
+    var rankEconomicEl = document.getElementById('fpi_indicator_root__content__data__ranking__rank--economic');
+    var rankCommunityEl = document.getElementById('fpi_indicator_root__content__data__ranking__rank--community');
+    var totalEcologicalEl = document.getElementById('fpi_indicator_root__content__data__ranking__total--ecological');
+    var totalEconomicEl = document.getElementById('fpi_indicator_root__content__data__ranking__total--economic');
+    var totalCommunityEl = document.getElementById('fpi_indicator_root__content__data__ranking__total--community');
+    var comparisonEcologicalD3 = d3.select('#fpi_indicator_root__content__data__comparison--ecological');
+    var comparisonEconomicD3 = d3.select('#fpi_indicator_root__content__data__comparison--economic');
+    var comparisonCommunityD3 = d3.select('#fpi_indicator_root__content__data__comparison--community');
     ecologicalEl.style.backgroundColor = scaleColor(window.fpiEcological);
     ecologicalEl.style.width = scaleWidth(window.fpiEcological) + '%';
     economicEl.style.backgroundColor = scaleColor(window.fpiEconomic);
@@ -27,11 +27,11 @@
     rankEcologicalEl.innerHTML = window.fpiIndicators.map(o => o.id).indexOf(window.fpiId) + 1;
     totalEcologicalEl.innerHTML = window.fpiIndicators.length;
     comparisonEcologicalD3
-      .selectAll('.fpi_indicator_root__comparison__value')
+      .selectAll('.fpi_indicator_root__content__data__comparison__value')
       .data(window.fpiIndicators)
       .enter()
       .append('div')
-      .classed('fpi_indicator_root__comparison__value', true)
+      .classed('fpi_indicator_root__content__data__comparison__value', true)
       .style('height', function(d) {
         return scaleWidth(Number(d.ecological)) + '%';
       })
@@ -44,11 +44,11 @@
     rankEconomicEl.innerHTML = window.fpiIndicators.map(o => o.id).indexOf(window.fpiId) + 1;
     totalEconomicEl.innerHTML = window.fpiIndicators.length;
     comparisonEconomicD3
-      .selectAll('.fpi_indicator_root__comparison__value')
+      .selectAll('.fpi_indicator_root__content__data__comparison__value')
       .data(window.fpiIndicators)
       .enter()
       .append('div')
-      .classed('fpi_indicator_root__comparison__value', true)
+      .classed('fpi_indicator_root__content__data__comparison__value', true)
       .style('height', function(d) {
         return scaleWidth(Number(d.economic)) + '%';
       })
@@ -61,11 +61,11 @@
     rankCommunityEl.innerHTML = window.fpiIndicators.map(o => o.id).indexOf(window.fpiId) + 1;
     totalCommunityEl.innerHTML = window.fpiIndicators.length;
     comparisonCommunityD3
-      .selectAll('.fpi_indicator_root__comparison__value')
+      .selectAll('.fpi_indicator_root__content__data__comparison__value')
       .data(window.fpiIndicators)
       .enter()
       .append('div')
-      .classed('fpi_indicator_root__comparison__value', true)
+      .classed('fpi_indicator_root__content__data__comparison__value', true)
       .style('height', function(d) {
         return scaleWidth(Number(d.community)) + '%';
       })

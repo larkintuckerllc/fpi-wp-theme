@@ -12,34 +12,49 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.fpi_indicator_root__indicator {
+@media (min-width: 768px) {
+  #fpi_indicator_root__content {
+    display: flex;
+  }
+  #fpi_indicator_root__content__data {
+    flex: 0 0 450px;
+  }
+  #fpi_indicator_root__content__overview {
+    margin-left: 20px;
+    flex: 1 0 0px;
+  }
+}
+#fpi_indicator_root__content__overview {
+  margin-top: 20px;
+}
+.fpi_indicator_root__content__data__indicator {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
 }
-.fpi_indicator_root__indicator__title {
-  width: 100px;
+.fpi_indicator_root__content__data__indicator__title {
+  flex: 0 0 100px;
   font-weight: bold;
 }
-.fpi_indicator_root__indicator__value {
-  flex-grow: 1;
+.fpi_indicator_root__content__data__indicator__value {
+  flex: 1 0 0px;
   margin-left: 10px;
   background-color: rgba(0, 0, 0, 0.1);
 }
-.fpi_indicator_root__indicator__value__scale {
+.fpi_indicator_root__content__data__indicator__value__scale {
   height: 100%;
   transition: width 1s;
 }
-.fpi_indicator_root__ranking {
+.fpi_indicator_root__content__data__ranking {
   margin-top: 10px;
 }
-.fpi_indicator_root__comparison {
+.fpi_indicator_root__content__data__comparison {
   display: flex;
   align-items: flex-end;
   margin-top: 10px;
   height: 100px;
   background-color: rgba(0, 0, 0, 0.1);
 }
-.fpi_indicator_root__comparison__value {
-  flex-grow: 1;
+.fpi_indicator_root__content__data__comparison__value {
+  flex: 1 0 0px;
 }

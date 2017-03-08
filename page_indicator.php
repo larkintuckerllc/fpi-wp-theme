@@ -54,92 +54,102 @@
       >
       </div>
     </div>
-    <div class="fpi_indicator_root__indicator">
-      <div class="fpi_indicator_root__indicator__title">Ecological</div>
-      <div class="fpi_indicator_root__indicator__value">
+    <div id="fpi_indicator_root__content">
+      <div id="fpi_indicator_root__content__data">
+        <div class="fpi_indicator_root__content__data__indicator">
+          <div class="fpi_indicator_root__content__data__indicator__title">Ecological</div>
+          <div class="fpi_indicator_root__content__data__indicator__value">
+            <div
+              id="fpi_indicator_root__content__data__indicator__value__scale--ecological"
+              class="fpi_indicator_root__content__data__indicator__value__scale"
+              style="width: 0%;"
+            >
+            </div>
+          </div>
+        </div>
         <div
-          id="fpi_indicator_root__indicator__value__scale--ecological"
-          class="fpi_indicator_root__indicator__value__scale"
-          style="width: 0%;"
+          class="fpi_indicator_root__content__data__ranking"
+        >
+          Ranked
+          <span
+            id="fpi_indicator_root__content__data__ranking__rank--ecological"
+          ></span>
+          out of
+          <span
+            id="fpi_indicator_root__content__data__ranking__total--ecological"
+          ></span>
+          fisheries.
+        </div>
+        <div
+          id="fpi_indicator_root__content__data__comparison--ecological"
+          class="fpi_indicator_root__content__data__comparison"
+        >
+        </div>
+        <div class="fpi_indicator_root__content__data__indicator">
+          <div class="fpi_indicator_root__content__data__indicator__title">Economic</div>
+          <div class="fpi_indicator_root__content__data__indicator__value">
+            <div
+              id="fpi_indicator_root__content__data__indicator__value__scale--economic"
+              class="fpi_indicator_root__content__data__indicator__value__scale"
+              style="width: 0%;"
+            >
+            </div>
+          </div>
+        </div>
+        <div
+          class="fpi_indicator_root__content__data__ranking"
+        >
+          Ranked
+          <span
+            id="fpi_indicator_root__content__data__ranking__rank--economic"
+          ></span>
+          out of
+          <span
+            id="fpi_indicator_root__content__data__ranking__total--economic"
+          ></span>
+          fisheries.
+        </div>
+        <div
+          id="fpi_indicator_root__content__data__comparison--economic"
+          class="fpi_indicator_root__content__data__comparison"
+        >
+        </div>
+        <div class="fpi_indicator_root__content__data__indicator">
+          <div class="fpi_indicator_root__content__data__indicator__title">Community</div>
+          <div class="fpi_indicator_root__content__data__indicator__value">
+            <div
+              id="fpi_indicator_root__content__data__indicator__value__scale--community"
+              class="fpi_indicator_root__content__data__indicator__value__scale"
+              style="width: 0%;"
+            >
+            </div>
+          </div>
+        </div>
+        <div
+          class="fpi_indicator_root__content__data__ranking"
+        >
+          Ranked
+          <span
+            id="fpi_indicator_root__content__data__ranking__rank--community"
+          ></span>
+          out of
+          <span
+            id="fpi_indicator_root__content__data__ranking__total--community"
+          ></span>
+          fisheries.
+        </div>
+        <div
+          id="fpi_indicator_root__content__data__comparison--community"
+          class="fpi_indicator_root__content__data__comparison"
         >
         </div>
       </div>
-    </div>
-    <div
-      class="fpi_indicator_root__ranking"
-    >
-      Ranked
-      <span
-        id="fpi_indicator_root__ranking__rank--ecological"
-      ></span>
-      out of
-      <span
-        id="fpi_indicator_root__ranking__total--ecological"
-      ></span>
-      fisheries.
-    </div>
-    <div
-      id="fpi_indicator_root__comparison--ecological"
-      class="fpi_indicator_root__comparison"
-    >
-    </div>
-    <div class="fpi_indicator_root__indicator">
-      <div class="fpi_indicator_root__indicator__title">Economic</div>
-      <div class="fpi_indicator_root__indicator__value">
-        <div
-          id="fpi_indicator_root__indicator__value__scale--economic"
-          class="fpi_indicator_root__indicator__value__scale"
-          style="width: 0%;"
-        >
-        </div>
+      <div
+        id="fpi_indicator_root__content__overview"
+      >
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum iaculis nibh tempus condimentum. Sed libero tellus, euismod vitae orci at, faucibus malesuada erat. Nunc scelerisque cursus molestie. Mauris massa nibh, volutpat ac volutpat at, rutrum ac lectus. Nam nec pretium libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In augue sapien, mattis a mauris sit amet, dictum faucibus justo. Donec quam est, vulputate sed rutrum eget, dictum at lacus. Duis porta mollis pulvinar. Quisque placerat ante ac metus varius imperdiet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed eget mauris nisl. In placerat commodo libero ac varius. Curabitur blandit consectetur lacus ac imperdiet. Phasellus semper fermentum erat ut venenatis. Donec ultrices tincidunt enim pretium fermentum.</p>
+        <p>In bibendum id tortor vitae sagittis. Suspendisse vulputate dui eget fermentum efficitur. Mauris dictum tincidunt mollis. In non mollis nisl. Mauris leo tortor, vulputate sed elit non, elementum hendrerit velit. Nulla lacinia mattis est, consectetur commodo felis eleifend id. Nulla tortor neque, ultrices et pellentesque non, facilisis at tortor. Nullam eu eros vitae mi auctor auctor nec id lorem. Donec a mattis ante, vehicula suscipit arcu. Aenean cursus neque nibh, eget vestibulum sem congue in.</p>
       </div>
-    </div>
-    <div
-      class="fpi_indicator_root__ranking"
-    >
-      Ranked
-      <span
-        id="fpi_indicator_root__ranking__rank--economic"
-      ></span>
-      out of
-      <span
-        id="fpi_indicator_root__ranking__total--economic"
-      ></span>
-      fisheries.
-    </div>
-    <div
-      id="fpi_indicator_root__comparison--economic"
-      class="fpi_indicator_root__comparison"
-    >
-    </div>
-    <div class="fpi_indicator_root__indicator">
-      <div class="fpi_indicator_root__indicator__title">Community</div>
-      <div class="fpi_indicator_root__indicator__value">
-        <div
-          id="fpi_indicator_root__indicator__value__scale--community"
-          class="fpi_indicator_root__indicator__value__scale"
-          style="width: 0%;"
-        >
-        </div>
-      </div>
-    </div>
-    <div
-      class="fpi_indicator_root__ranking"
-    >
-      Ranked
-      <span
-        id="fpi_indicator_root__ranking__rank--community"
-      ></span>
-      out of
-      <span
-        id="fpi_indicator_root__ranking__total--community"
-      ></span>
-      fisheries.
-    </div>
-    <div
-      id="fpi_indicator_root__comparison--community"
-      class="fpi_indicator_root__comparison"
-    >
     </div>
   </div>
   <script>
