@@ -65,6 +65,24 @@
         </div>
       </div>
     </div>
+    <div
+      class="fpi_indicator_root__ranking"
+    >
+      Ranked
+      <span
+        id="fpi_indicator_root__ranking__rank--ecological"
+      ></span>
+      out of
+      <span
+        id="fpi_indicator_root__ranking__total--ecological"
+      ></span>
+      fisheries.
+    </div>
+    <div
+      id="fpi_indicator_root__comparison--ecological"
+      class="fpi_indicator_root__comparison"
+    >
+    </div>
     <div class="fpi_indicator_root__indicator">
       <div class="fpi_indicator_root__indicator__title">Economic</div>
       <div class="fpi_indicator_root__indicator__value">
@@ -75,6 +93,24 @@
         >
         </div>
       </div>
+    </div>
+    <div
+      class="fpi_indicator_root__ranking"
+    >
+      Ranked
+      <span
+        id="fpi_indicator_root__ranking__rank--economic"
+      ></span>
+      out of
+      <span
+        id="fpi_indicator_root__ranking__total--economic"
+      ></span>
+      fisheries.
+    </div>
+    <div
+      id="fpi_indicator_root__comparison--economic"
+      class="fpi_indicator_root__comparison"
+    >
     </div>
     <div class="fpi_indicator_root__indicator">
       <div class="fpi_indicator_root__indicator__title">Community</div>
@@ -87,8 +123,21 @@
         </div>
       </div>
     </div>
-        <div
-      id="fpi_indicator_root__comparison--ecological"
+    <div
+      class="fpi_indicator_root__ranking"
+    >
+      Ranked
+      <span
+        id="fpi_indicator_root__ranking__rank--community"
+      ></span>
+      out of
+      <span
+        id="fpi_indicator_root__ranking__total--community"
+      ></span>
+      fisheries.
+    </div>
+    <div
+      id="fpi_indicator_root__comparison--community"
       class="fpi_indicator_root__comparison"
     >
     </div>

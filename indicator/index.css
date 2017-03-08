@@ -19,6 +19,7 @@
 }
 .fpi_indicator_root__indicator__title {
   width: 100px;
+  font-weight: bold;
 }
 .fpi_indicator_root__indicator__value {
   flex-grow: 1;
@@ -29,10 +30,13 @@
   height: 100%;
   transition: width 1s;
 }
+.fpi_indicator_root__ranking {
+  margin-top: 10px;
+}
 .fpi_indicator_root__comparison {
   display: flex;
   align-items: flex-end;
-  margin-top: 20px;
+  margin-top: 10px;
   height: 100px;
   background-color: rgba(0, 0, 0, 0.1);
 }
