@@ -20,9 +20,11 @@ class WorldDrawing extends Component {
     this.handleTouchMove = this.handleTouchMove.bind(this);
     this.handleTouchEnd = this.handleTouchEnd.bind(this);
     this.handleWheel = this.handleWheel.bind(this);
+    this.d3Render = this.d3Render.bind(this);
   }
   componentDidMount() {
-    const { indicators, rotation, scale, selected, setSelected } = this.props;
+    const { indicator, indicators, push, scale, setRotation } = this.props;
+    const selected = indicator !== undefined ? indicator.id : null;
     this.rootEl = d3.select(`#${styles.root}`);
     this.rootSpaceEl = this.rootEl.append('rect')
       .attr('x', -1 * RADIUS)
@@ -74,13 +76,16 @@ class WorldDrawing extends Component {
         ))
         .on('click', d => {
           if (this.mousePanned) return;
-          setSelected(d.indicator.id);
+          setRotation([-1 * Number(d.indicator.longitude), -1 * Number(d.indicator.latitude), 0]);
+          push(`/indicators/${d.indicator.id.toString()}`);
         });
       this.rootIndicatorsElSelection = rootIndicatorsEl
         .selectAll(`.${styles.rootIndicatorsFeature}`)
         .data(indicatorsWithGeoJSON);
-      this.d3Render(rotation, scale, selected);
-      this.d3Render(rotation, scale);
+      this.d3Render();
+      if (indicator !== undefined) {
+        setRotation([-1 * Number(indicator.longitude), -1 * Number(indicator.latitude), 0]);
+      }
       this.rootEl.on('mousedown', this.handleMouseDown);
       this.rootEl.on('mousemove', this.handleMouseMove);
       this.rootEl.on('mouseup', this.handleMouseUp);
@@ -90,12 +95,6 @@ class WorldDrawing extends Component {
       this.rootEl.on('touchend', this.handleTouchEnd);
       this.rootEl.on('wheel', this.handleWheel);
     });
-  }
-  componentWillReceiveProps({ rotation, scale, selected }) {
-    this.d3Render(rotation, scale, selected);
-  }
-  shouldComponentUpdate() {
-    return false;
   }
   componentWillUnmount() {
     this.rootFisheriesElSelection.on('click', null);
@@ -108,7 +107,9 @@ class WorldDrawing extends Component {
     this.rootEl.on('touchend', null);
     this.rootEl.on('wheel', null);
   }
-  d3Render(rotation, scale, selected) {
+  d3Render() {
+    const { indicator, rotation, scale } = this.props;
+    const selected = indicator !== undefined ? indicator.id : null;
     if (this.rootCountriesElSelection === undefined) return;
     this.projection.rotate(rotation);
     this.projection.scale(RADIUS * scale);
@@ -127,9 +128,9 @@ class WorldDrawing extends Component {
     });
   }
   handleMouseDown() {
-    const { removeSelected } = this.props;
+    const { push } = this.props;
     if (this.touchPanning) return;
-    removeSelected();
+    push('/');
     this.mousePanning = true;
     this.mousePanned = false;
     this.lastPosition = d3Core.mouse(this.rootEl.node());
@@ -158,10 +159,10 @@ class WorldDrawing extends Component {
     this.mousePanning = false;
   }
   handleTouchStart() {
-    const { removeSelected } = this.props;
+    const { push } = this.props;
     if (this.mousePanning) return;
+    push('/');
     const touches = d3Core.touches(this.rootEl.node());
-    removeSelected();
     if (touches.length > 1) return;
     this.touchPanning = true;
     this.lastPosition = touches[0];
@@ -189,8 +190,8 @@ class WorldDrawing extends Component {
     this.touchPanning = false;
   }
   handleWheel() {
-    const { removeSelected, scale, setScale } = this.props;
-    removeSelected();
+    const { push, scale, setScale } = this.props;
+    push('/');
     const e = d3Core.event;
     if (e.deltaY <= 0) {
       setScale(
@@ -203,6 +204,7 @@ class WorldDrawing extends Component {
     }
   }
   render() {
+    this.d3Render();
     return (
       <svg
         id={styles.root}
@@ -212,13 +214,12 @@ class WorldDrawing extends Component {
   }
 }
 WorldDrawing.propTypes = {
+  indicator: PropTypes.object,
   indicators: PropTypes.array.isRequired,
-  removeSelected: PropTypes.func.isRequired,
+  push: PropTypes.func.isRequired,
   rotation: PropTypes.array.isRequired,
   scale: PropTypes.number.isRequired,
-  selected: PropTypes.number,
   setRotation: PropTypes.func.isRequired,
   setScale: PropTypes.func.isRequired,
-  setSelected: PropTypes.func.isRequired,
 };
 export default WorldDrawing;

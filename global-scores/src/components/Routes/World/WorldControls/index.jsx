@@ -4,11 +4,11 @@ import styles from './index.scss';
 import zoomIn from './zoomIn.png';
 import zoomOut from './zoomOut.png';
 
-const WorldControls = ({ removeSelected, scale, setScale }) => (
+const WorldControls = ({ push, scale, setScale }) => (
   <div id={styles.root}>
     <div
       onClick={() => {
-        removeSelected();
+        push('/');
         setScale(
           scale < MAX_SCALE ? scale * 2 : MAX_SCALE
         );
@@ -18,7 +18,7 @@ const WorldControls = ({ removeSelected, scale, setScale }) => (
     </div>
     <div
       onClick={() => {
-        removeSelected();
+        push('/');
         setScale(
           scale > MIN_SCALE ? scale / 2 : MIN_SCALE
         );
@@ -29,7 +29,7 @@ const WorldControls = ({ removeSelected, scale, setScale }) => (
   </div>
 );
 WorldControls.propTypes = {
-  removeSelected: PropTypes.func.isRequired,
+  push: PropTypes.func.isRequired,
   scale: PropTypes.number.isRequired,
   setScale: PropTypes.func.isRequired,
 };

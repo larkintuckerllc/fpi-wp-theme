@@ -14,10 +14,10 @@
   width: 100%;
 }
 #fpi_indicator_root__hero__map__globe {
-  fill: rgba(0, 0, 0, 0.1);
+  fill: rgb(230, 230, 230);
 }
 .fpi_indicator_root__hero__map__countries__feature {
-  stroke: #fff;
+  stroke: rgb(255, 255, 255);
   stroke-width: 0.25;
   fill: rgb(204, 204, 204);
 }
@@ -71,7 +71,7 @@
 .fpi_indicator_root__content__data__indicator__value {
   flex: 1 0 0px;
   margin-left: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgb(230, 230, 230);
 }
 .fpi_indicator_root__content__data__indicator__value__scale {
   height: 100%;
@@ -85,7 +85,7 @@
   align-items: flex-end;
   margin-top: 10px;
   height: 100px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgb(230, 230, 230);
 }
 .fpi_indicator_root__content__data__comparison__value {
   flex: 1 0 0px;

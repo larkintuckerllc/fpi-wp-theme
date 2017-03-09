@@ -48,7 +48,7 @@
 <?php get_header(); ?>
 <?php while (have_posts()) : the_post(); ?>
   <div id="fpi_indicator_root" class="container">
-    <h4><a href="/global-scores">Global Scores</a> &gt; <?php the_field('name') ?></h4>
+    <h4><a href="/global-scores/#/indicators/<?php the_ID(); ?>">Global Scores</a> &gt; <?php the_field('name') ?></h4>
     <div id="fpi_indicator_root__hero">
       <svg
         id="fpi_indicator_root__hero__map"

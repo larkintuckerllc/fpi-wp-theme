@@ -1,66 +1,60 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { getIndicators } from '../../../ducks/indicators';
+import * as fromReactRouterRedux from 'react-router-redux';
+import { getIndicator, getIndicators } from '../../../ducks/indicators';
 import * as fromRotation from '../../../ducks/rotation';
 import * as fromScale from '../../../ducks/scale';
-import * as fromSelected from '../../../ducks/selected';
 import WorldView from './WorldView';
 import WorldDrawing from './WorldDrawing';
 import WorldControls from './WorldControls';
 import WorldSnackbar from './WorldSnackbar';
 
 const World = ({
+  indicator,
   indicators,
-  removeSelected,
+  push,
   rotation,
   scale,
-  selected,
   setRotation,
   setScale,
-  setSelected,
 }) => (
   <WorldView>
     <WorldDrawing
+      indicator={indicator}
       indicators={indicators}
-      removeSelected={removeSelected}
+      push={push}
       rotation={rotation}
       scale={scale}
-      selected={selected}
       setRotation={setRotation}
       setScale={setScale}
-      setSelected={setSelected}
     />
     <WorldControls
-      removeSelected={removeSelected}
+      push={push}
       scale={scale}
       setScale={setScale}
     />
-    <WorldSnackbar
-      selected={selected}
-    />
+    {indicator !== undefined && <WorldSnackbar indicator={indicator} />}
   </WorldView>
 );
 World.propTypes = {
+  indicator: PropTypes.object,
   indicators: PropTypes.array.isRequired,
-  removeSelected: PropTypes.func.isRequired,
+  push: PropTypes.func.isRequired,
   rotation: PropTypes.array.isRequired,
   setRotation: PropTypes.func.isRequired,
   scale: PropTypes.number.isRequired,
-  selected: PropTypes.number,
   setScale: PropTypes.func.isRequired,
-  setSelected: PropTypes.func.isRequired,
 };
 export default connect(
-  (state) => ({
+  (state, ownProps) => ({
+    indicator: getIndicator(state, ownProps.params.id),
     indicators: getIndicators(state),
     rotation: fromRotation.getRotation(state),
     scale: fromScale.getScale(state),
-    selected: fromSelected.getSelected(state),
   }),
   {
-    removeSelected: fromSelected.removeSelected,
+    push: fromReactRouterRedux.push,
     setRotation: fromRotation.setRotation,
     setScale: fromScale.setScale,
-    setSelected: fromSelected.setSelected,
   }
 )(World);

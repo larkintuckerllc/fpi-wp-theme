@@ -2,21 +2,21 @@
   width: 100%;
 }
 #rootSpace {
-  fill: #000000;
+  fill: #2c3e50;
 }
 #rootGlobe {
-  fill: #0000FF;
+  fill: rgb(230, 230, 230);
 }
 .rootCountriesFeature {
-  stroke: #fff;
-  fill: #00FF00;
+  stroke: rgb(255, 255, 255);
+  fill: rgb(204, 204, 204);
 }
 .rootIndicatorsFeature {
-  stroke: rgb(255, 0, 0);
-  fill: rgba(255, 0, 0, 0.5);
+  stroke: rgb(0, 240, 0);
+  fill: rgba(0, 150, 0, 0.5);
   stroke-width: 0;
 }
 .rootIndicatorsFeatureSelected {
-  stroke: rgb(0, 255, 255);
-  fill: rgba(0, 255, 255, 0.5);
+  stroke: rgb(0, 0, 240);
+  fill: rgba(0, 0, 240, 0.5);
 }
