@@ -1,18 +1,50 @@
 #fpi_indicator_root {
   padding-top: 20px;
 }
-#fpi_indicator_root__image {
-  text-align: center;
+#fpi_indicator_root__hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  height: 200px;
+  overflow: hidden;
 }
-#fpi_indicator_root__image__image {
-  display: inline-block;
+#fpi_indicator_root__hero__map {
+  display: none;
+  width: 100%;
+}
+#fpi_indicator_root__hero__map__globe {
+  fill: rgba(0, 0, 0, 0.1);
+}
+.fpi_indicator_root__hero__map__countries__feature {
+  stroke: #fff;
+  stroke-width: 0.25;
+  fill: rgb(204, 204, 204);
+}
+.fpi_indicator_root__hero__map__indicator {
+  stroke: rgb(0,0, 255);
+  fill: rgba(0, 0, 255, 0.5);
+  stroke-width: 0;
+}
+#fpi_indicator_root__hero__image {
   width: 300px;
   height: 200px;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 @media (min-width: 768px) {
+  #fpi_indicator_root__hero {
+    height: 240px;
+  }
+  #fpi_indicator_root__hero__map {
+    display: block;
+  }
+  #fpi_indicator_root__hero__image {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+  }
   #fpi_indicator_root__content {
     display: flex;
   }

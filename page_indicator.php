@@ -2,8 +2,12 @@
   function fpi_indicator_add_scripts() {
     wp_register_script('d3',
       get_template_directory_uri() .
-      '/bower_components/d3/d3.min.js',
+      '/node_modules/d3/build/d3.min.js',
       array(), '2017020101', true);
+    wp_register_script('d3_geo',
+      get_template_directory_uri() .
+      '/node_modules/d3-geo/build/d3-geo.min.js',
+      array('d3'), '2017020101', true);
     wp_register_style('fpi_indicator',
       get_template_directory_uri() .
       '/indicator/index.css',
@@ -11,9 +15,10 @@
     wp_register_script('fpi_indicator',
       get_template_directory_uri() .
       '/indicator/index.js',
-      array('jquery', 'd3'), '2017020101', true);
+      array('jquery', 'd3', 'd3_geo'), '2017020101', true);
     wp_enqueue_style('fpi_indicator');
     wp_enqueue_script('d3');
+    wp_enqueue_script('d3_geo');
     wp_enqueue_script('fpi_indicator');
   }
   add_action('wp_enqueue_scripts', 'fpi_indicator_add_scripts');
@@ -43,13 +48,14 @@
 <?php get_header(); ?>
 <?php while (have_posts()) : the_post(); ?>
   <div id="fpi_indicator_root" class="container">
-    <div><a href="/global-scores/">
-      <button type="button" class="btn btn-default btn-sm">Back</button>
-    </a></div>
-    <h3><?php the_field('name') ?></h3>
-    <div id="fpi_indicator_root__image">
+    <h4><a href="/global-scores">Global Scores</a> &gt; <?php the_field('name') ?></h4>
+    <div id="fpi_indicator_root__hero">
+      <svg
+        id="fpi_indicator_root__hero__map"
+        viewBox='-50 -50 100 100'
+      ></svg>
       <div
-        id="fpi_indicator_root__image__image"
+        id="fpi_indicator_root__hero__image"
         style="background-image: url(<?php the_field('image') ?>);"
       >
       </div>
@@ -153,7 +159,10 @@
     </div>
   </div>
   <script>
+    window.baseUrl = '<?php echo get_template_directory_uri(); ?>/indicator/';
     window.fpiId = <?php the_ID(); ?>;
+    window.fpiLatitude = <?php the_field('latitude'); ?>;
+    window.fpiLongitude = <?php the_field('longitude'); ?>;
     window.fpiEcological = <?php the_field('ecological'); ?>;
     window.fpiEconomic = <?php the_field('economic'); ?>;
     window.fpiCommunity = <?php the_field('community'); ?>;

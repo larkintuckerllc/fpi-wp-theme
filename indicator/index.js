@@ -1,4 +1,5 @@
 (function() {
+  const RADIUS = 50;
   var document = window.document;
   var $ = window.$;
   var d3 = window.d3;
@@ -15,12 +16,45 @@
     var comparisonEcologicalD3 = d3.select('#fpi_indicator_root__content__data__comparison--ecological');
     var comparisonEconomicD3 = d3.select('#fpi_indicator_root__content__data__comparison--economic');
     var comparisonCommunityD3 = d3.select('#fpi_indicator_root__content__data__comparison--community');
+    var mapD3 = d3.select('#fpi_indicator_root__hero__map');
+    // MAP
+    mapD3.append('rect')
+      .attr('x', -1 * RADIUS)
+      .attr('y', -1 * RADIUS)
+      .attr('width', RADIUS * 2)
+      .attr('height', RADIUS * 2)
+      .attr('id', 'fpi_indicator_root__hero__map__globe');
+    var mapCountriesD3 = mapD3.append('g');
+    var projection = d3
+      .geoOrthographic()
+      .rotate([-1 * Number(window.fpiLongitude) + 20, -1 * Number(window.fpiLatitude), 0])
+      .translate([0, 0])
+      .scale(RADIUS);
+    var path = d3.geoPath().projection(projection);
+    d3.json(window.baseUrl + 'world-countries.json', function(countries) {
+      mapCountriesD3
+        .selectAll('.fpi_indicator_root__hero__map__countries__feature')
+        .data(countries.features)
+        .enter()
+        .append('path')
+        .attr('class', 'fpi_indicator_root__hero__map__countries__feature')
+        .attr('d', d => path(d));
+    });
+    var indicator = d3.geoCircle()
+      .center([Number(window.fpiLongitude), Number(window.fpiLatitude)])
+      .radius(2)();
+    mapD3
+      .append('path')
+      .attr('d', path(indicator))
+      .attr('class', 'fpi_indicator_root__hero__map__indicator');
+    // INDICATORS
     ecologicalEl.style.backgroundColor = scaleColor(window.fpiEcological);
     ecologicalEl.style.width = scaleWidth(window.fpiEcological) + '%';
     economicEl.style.backgroundColor = scaleColor(window.fpiEconomic);
     economicEl.style.width = scaleWidth(window.fpiEconomic) + '%';
     communityEl.style.backgroundColor = scaleColor(window.fpiCommunity);
     communityEl.style.width = scaleWidth(window.fpiCommunity) + '%';
+    // COMPARISON ECOLOGICAL
     window.fpiIndicators.sort(function(a, b) {
         return Number(b.ecological) - Number(a.ecological);
     });
@@ -38,6 +72,7 @@
       .style('background-color', function(d) {
         return d.id === window.fpiId ? scaleColor(Number(d.ecological)) : 'rgb(204, 204, 204)';
       });
+    // COMPARISON ECONOMIC
     window.fpiIndicators.sort(function(a, b) {
         return Number(b.economic) - Number(a.economic);
     });
@@ -55,6 +90,7 @@
       .style('background-color', function(d) {
         return d.id === window.fpiId ? scaleColor(Number(d.economic)) : 'rgb(204, 204, 204)';
       });
+    // COMPARISONCOMMUNITY
     window.fpiIndicators.sort(function(a, b) {
         return Number(b.community) - Number(a.community);
     });
@@ -72,6 +108,7 @@
       .style('background-color', function(d) {
         return d.id === window.fpiId ? scaleColor(Number(d.community)) : 'rgb(204, 204, 204)';
       });
+    // HOISTED FUNCTIONS
     function scaleWidth(value) {
       return 100 * ((value - 1) / 5);
     }
