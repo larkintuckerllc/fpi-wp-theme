@@ -1,0 +1,42 @@
+#root {
+  display: flex;
+}
+#root div {
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#root > div > div:first-child {
+  font-weight: bold;
+}
+.rootFixed {
+  flex: 0 1 auto;
+  border-left: 1px solid #2c3e50;
+}
+.rootFixed > div {
+  border-top: 1px solid #2c3e50;
+  padding: 5px;
+}
+.rootFixed > div:last-child {
+  border-bottom: 1px solid #2c3e50;
+}
+.rootFixedLast {
+  border-right: 1px solid #2c3e50;
+}
+#rootFixedFishery {
+  width: 300px;
+}
+#rootFixedCountry {
+  width: 200px;
+}
+.rootFlexible {
+  flex: 1 1 auto;
+  text-align: center;
+}
+.rootFlexible > div {
+  padding-top: 6px;
+  padding-bottom: 5px;
+}
+.rootFlexible > div:last-child {
+  padding-bottom: 6px;
+}

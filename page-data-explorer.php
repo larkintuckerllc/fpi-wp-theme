@@ -1,17 +1,17 @@
 <?php
-  function fpi_global_scores_add_scripts() {
-    wp_register_script('fpi_global_scores_vendor',
+  function fpi_data_explorer_add_scripts() {
+    wp_register_script('fpi_data_explorer_vendor',
       get_template_directory_uri() .
-      '/global-scores/dist/vendor.bundle.js',
+      '/data-explorer/dist/vendor.bundle.js',
       array(), '2017020101', true);
-    wp_register_script('fpi_global_scores_main',
+    wp_register_script('fpi_data_explorer_main',
       get_template_directory_uri() .
-      '/global-scores/dist/main.bundle.js',
-      array('fpi_global_scores_vendor'), '2017020101', true);
-    wp_enqueue_script('fpi_global_scores_vendor');
-    wp_enqueue_script('fpi_global_scores_main');
+      '/data-explorer/dist/main.bundle.js',
+      array('fpi_data_explorer_vendor'), '2017020101', true);
+    wp_enqueue_script('fpi_data_explorer_vendor');
+    wp_enqueue_script('fpi_data_explorer_main');
   }
-  add_action('wp_enqueue_scripts', 'fpi_global_scores_add_scripts');
+  add_action('wp_enqueue_scripts', 'fpi_data_explorer_add_scripts');
 ?>
 <?php
   $indicators = array();
@@ -37,7 +37,10 @@
 ?>
 <?php get_header(); ?>
 <?php while (have_posts()) : the_post(); ?>
-  <div id="root"></div>
+  <div>&nbsp;</div>
+  <div class="container">
+    <div id="root"></div>
+  </div>
   <script>
     window.indicators = <?php echo json_encode( $indicators ); ?>;
     window.baseUrl = '<?php echo get_template_directory_uri(); ?>/global-scores/dist/';
