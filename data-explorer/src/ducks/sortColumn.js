@@ -1,6 +1,7 @@
 import { ACTION_PREFIX } from '../strings';
 
 export const FISHERY = 'FISHERY';
+export const SPECIES = 'SPECIES';
 export const COUNTRY = 'COUNTRY';
 export const ECOLOGICAL = 'ECOLOGICAL';
 export const ECONOMIC = 'ECONOMIC';

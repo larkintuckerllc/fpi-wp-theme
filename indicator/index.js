@@ -4,6 +4,7 @@
   var $ = window.$;
   var d3 = window.d3;
   $(document).ready(function() {
+    var backEl = document.getElementById('fpi_indicator_root__back');
     var ecologicalEl = document.getElementById('fpi_indicator_root__content__data__indicator__value__scale--ecological');
     var economicEl = document.getElementById('fpi_indicator_root__content__data__indicator__value__scale--economic');
     var communityEl = document.getElementById('fpi_indicator_root__content__data__indicator__value__scale--community');
@@ -17,6 +18,9 @@
     var comparisonEconomicD3 = d3.select('#fpi_indicator_root__content__data__comparison--economic');
     var comparisonCommunityD3 = d3.select('#fpi_indicator_root__content__data__comparison--community');
     var mapD3 = d3.select('#fpi_indicator_root__hero__map');
+    backEl.addEventListener('click', function() {
+      window.history.back();
+    });
     // MAP
     mapD3.append('rect')
       .attr('x', -1 * RADIUS)
@@ -112,10 +116,15 @@
     function scaleWidth(value) {
       return 100 * ((value - 1) / 5);
     }
-    function scaleColor(value) {
-      if (value >= 4) return 'green';
-      if (value >= 3) return 'yellow';
-      return 'red';
-    }
+    function scaleColor (value) {
+      if (value <= 1.5) return '#ff0000';
+      if (value <= 2.0) return '#ff5050';
+      if (value <= 2.5) return '#ff7c80';
+      if (value <= 3) return '#ff9999';
+      if (value <= 3.5) return '#ffcc99';
+      if (value <= 4) return '#ffff99';
+      if (value <= 4.5) return '#66ff66';
+      return '#00cc00';
+    };
   });
 })();

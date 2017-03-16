@@ -26,46 +26,50 @@
   height: 0px;
   vertical-align: middle;
 }
-#root {
+#rootTable {
   display: flex;
+  margin-top: 20px;
 }
-#root div {
+#rootTable > div > div {
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-#root > div > div:first-child {
+#rootTable > div > div:first-child {
   font-weight: bold;
   height: 36px;
 }
-.rootFixed {
+.rootTableFixed {
   flex: 0 1 auto;
   border-left: 1px solid #2c3e50;
 }
-.rootFixed > div {
+.rootTableFixed > div {
   border-top: 1px solid #2c3e50;
   padding: 5px;
 }
-.rootFixed > div:last-child {
+.rootTableFixed > div:last-child {
   border-bottom: 1px solid #2c3e50;
 }
-.rootFixedLast {
+.rootTableFixedLast {
   border-right: 1px solid #2c3e50;
 }
-#rootFixedFishery {
-  width: 300px;
-}
-#rootFixedCountry {
+#rootTableFixedFishery {
   width: 200px;
 }
-.rootFlexible {
+#rootTableFixedSpecies {
+  width: 200px;
+}
+#rootTableFixedCountry {
+  width: 100px;
+}
+.rootTableFlexible {
   flex: 1 1 auto;
   text-align: center;
 }
-.rootFlexible > div {
+.rootTableFlexible > div {
   padding-top: 6px;
   padding-bottom: 5px;
 }
-.rootFlexible > div:last-child {
+.rootTableFlexible > div:last-child {
   padding-bottom: 6px;
 }

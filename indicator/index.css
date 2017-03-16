@@ -75,7 +75,7 @@
 }
 .fpi_indicator_root__content__data__indicator__value__scale {
   height: 100%;
-  transition: width 1s;
+  transition: width 2s;
 }
 .fpi_indicator_root__content__data__ranking {
   margin-top: 10px;
