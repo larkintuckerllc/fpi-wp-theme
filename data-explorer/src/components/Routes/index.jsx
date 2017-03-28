@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import { hashHistory, Route, Router } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import Spreadsheet from './Spreadsheet';
+import Explorer from './Explorer';
 
 const Routes = (props, { store }) => (
   <Router history={syncHistoryWithStore(hashHistory, store)}>
-    <Route path="/" component={Spreadsheet} />
+    <Route path="/" component={Explorer} />
   </Router>
 );
 Routes.contextTypes = {
