@@ -107,108 +107,116 @@ const Spreadsheet = ({
       </form>
       */}
       <div id={styles.rootScroll}>
-        <table className={styles.rootScrollTable}>
-          <thead>
-            <tr>
-              <th
-                onClick={() => {
-                  if (sortColumn === fromSortColumn.FISHERY) {
-                    toggleSortDirection();
-                  } else {
-                    setSortColumn(fromSortColumn.FISHERY);
-                  }
-                }}
-              >
-                Fishery
-                <div className={fisheryClass} />
-              </th>
-              <th
-                onClick={() => {
-                  if (sortColumn === fromSortColumn.SPECIES) {
-                    toggleSortDirection();
-                  } else {
-                    setSortColumn(fromSortColumn.SPECIES);
-                  }
-                }}
-              >
-                Species
-                <div className={speciesClass} />
-              </th>
-              <th
-                onClick={() => {
-                  if (sortColumn === fromSortColumn.COUNTRY) {
-                    toggleSortDirection();
-                  } else {
-                    setSortColumn(fromSortColumn.COUNTRY);
-                  }
-                }}
-              >
-                Country
-                <div className={countryClass} />
-              </th>
-              <th
-                onClick={() => {
-                  if (sortColumn === fromSortColumn.ECOLOGICAL) {
-                    toggleSortDirection();
-                  } else {
-                    setSortColumn(fromSortColumn.ECOLOGICAL);
-                  }
-                }}
-              >
-                Ecological
-                <div className={ecologicalClass} />
-              </th>
-              <th
-                onClick={() => {
-                  if (sortColumn === fromSortColumn.ECONOMIC) {
-                    toggleSortDirection();
-                  } else {
-                    setSortColumn(fromSortColumn.ECONOMIC);
-                  }
-                }}
-              >
-                Economic
-                <div className={economicClass} />
-              </th>
-              <th
-                onClick={() => {
-                  if (sortColumn === fromSortColumn.COMMUNITY) {
-                    toggleSortDirection();
-                  } else {
-                    setSortColumn(fromSortColumn.COMMUNITY);
-                  }
-                }}
-              >
-                Community
-                <div className={communityClass} />
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {indicators.map(o => (
-              <tr key={o.id}>
-                <td>{o.name}</td>
-                <td>{o.species}</td>
-                <td>{o.country}</td>
-                <td
-                  style={{ backgroundColor: colorScale(Number(o.ecological)) }}
+        <div id={styles.rootScrollOpen}>
+          <table className={styles.rootScrollOpenTable}>
+            <thead>
+              <tr>
+                <th
+                  onClick={() => {
+                    if (sortColumn === fromSortColumn.FISHERY) {
+                      toggleSortDirection();
+                    } else {
+                      setSortColumn(fromSortColumn.FISHERY);
+                    }
+                  }}
                 >
-                  {Number(o.ecological).toFixed(2)}
-                </td>
-                <td
-                  style={{ backgroundColor: colorScale(Number(o.economic)) }}
+                  Fishery
+                  <div className={fisheryClass} />
+                </th>
+                <th
+                  onClick={() => {
+                    if (sortColumn === fromSortColumn.SPECIES) {
+                      toggleSortDirection();
+                    } else {
+                      setSortColumn(fromSortColumn.SPECIES);
+                    }
+                  }}
                 >
-                  {Number(o.economic).toFixed(2)}
-                </td>
-                <td
-                  style={{ backgroundColor: colorScale(Number(o.community)) }}
+                  Species
+                  <div className={speciesClass} />
+                </th>
+                <th
+                  onClick={() => {
+                    if (sortColumn === fromSortColumn.COUNTRY) {
+                      toggleSortDirection();
+                    } else {
+                      setSortColumn(fromSortColumn.COUNTRY);
+                    }
+                  }}
                 >
-                  {Number(o.community).toFixed(2)}
-                </td>
+                  Country
+                  <div className={countryClass} />
+                </th>
+                <th
+                  onClick={() => {
+                    if (sortColumn === fromSortColumn.ECOLOGICAL) {
+                      toggleSortDirection();
+                    } else {
+                      setSortColumn(fromSortColumn.ECOLOGICAL);
+                    }
+                  }}
+                >
+                  Ecological
+                  <div className={ecologicalClass} />
+                </th>
+                <th
+                  onClick={() => {
+                    if (sortColumn === fromSortColumn.ECONOMIC) {
+                      toggleSortDirection();
+                    } else {
+                      setSortColumn(fromSortColumn.ECONOMIC);
+                    }
+                  }}
+                >
+                  Economic
+                  <div className={economicClass} />
+                </th>
+                <th
+                  onClick={() => {
+                    if (sortColumn === fromSortColumn.COMMUNITY) {
+                      toggleSortDirection();
+                    } else {
+                      setSortColumn(fromSortColumn.COMMUNITY);
+                    }
+                  }}
+                >
+                  Community
+                  <div className={communityClass} />
+                </th>
+                <th />
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+          </table>
+          <div id={styles.rootScrollOpenScroll}>
+            <table className={styles.rootScrollOpenTable}>
+              <tbody>
+                {indicators.map(o => (
+                  <tr key={o.id}>
+                    <td>{o.name}</td>
+                    <td>{o.species}</td>
+                    <td>{o.country}</td>
+                    <td
+                      style={{ backgroundColor: colorScale(Number(o.ecological)) }}
+                    >
+                      {Number(o.ecological).toFixed(2)}
+                    </td>
+                    <td
+                      style={{ backgroundColor: colorScale(Number(o.economic)) }}
+                    >
+                      {Number(o.economic).toFixed(2)}
+                    </td>
+                    <td
+                      style={{ backgroundColor: colorScale(Number(o.community)) }}
+                    >
+                      {Number(o.community).toFixed(2)}
+                    </td>
+                    <td />
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );
