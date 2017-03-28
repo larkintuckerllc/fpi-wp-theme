@@ -26,50 +26,62 @@
   height: 0px;
   vertical-align: middle;
 }
-#rootTable {
-  display: flex;
-  margin-top: 20px;
+#rootScroll {
+  width: 100%;
+  max-height: 300px;
+  overflow: auto;
 }
-#rootTable > div > div {
-  overflow-x: hidden;
+@media screen and ( min-height: 600px ) {
+  #rootScroll {
+    max-height: 500px;
+  }
+}
+@media screen and ( min-height: 800px ) {
+  #rootScroll {
+    max-height: 700px;
+  }
+}
+.rootScrollTable {
+  width: 1214px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+.rootScrollTable th, .rootScrollTable td {
+  padding: 5px;
   white-space: nowrap;
+  overflow-x: hidden;
   text-overflow: ellipsis;
 }
-#rootTable > div > div:first-child {
-  font-weight: bold;
-  height: 36px;
+.rootScrollTable th:nth-child(1),
+.rootScrollTable td:nth-child(1),
+.rootScrollTable th:nth-child(2),
+.rootScrollTable td:nth-child(2),
+.rootScrollTable th:nth-child(3),
+.rootScrollTable td:nth-child(3) {
+  border: 1px solid black;
+  text-align: left;
 }
-.rootTableFixed {
-  flex: 0 1 auto;
-  border-left: 1px solid #2c3e50;
-}
-.rootTableFixed > div {
-  border-top: 1px solid #2c3e50;
-  padding: 5px;
-}
-.rootTableFixed > div:last-child {
-  border-bottom: 1px solid #2c3e50;
-}
-.rootTableFixedLast {
-  border-right: 1px solid #2c3e50;
-}
-#rootTableFixedFishery {
-  width: 200px;
-}
-#rootTableFixedSpecies {
-  width: 200px;
-}
-#rootTableFixedCountry {
-  width: 100px;
-}
-.rootTableFlexible {
-  flex: 1 1 auto;
+.rootScrollTable th:nth-child(4),
+.rootScrollTable td:nth-child(4),
+.rootScrollTable th:nth-child(5),
+.rootScrollTable td:nth-child(5),
+.rootScrollTable th:nth-child(6),
+.rootScrollTable td:nth-child(6) {
   text-align: center;
 }
-.rootTableFlexible > div {
-  padding-top: 6px;
-  padding-bottom: 5px;
+.rootScrollTable th:nth-child(1) {
+  width: 300px;
 }
-.rootTableFlexible > div:last-child {
-  padding-bottom: 6px;
+.rootScrollTable td:nth-child(1) {
+  width: 300px;
+}
+.rootScrollTable th:nth-child(2),
+.rootScrollTable th:nth-child(3) {
+  width: 200px;
+}
+.rootScrollTable th:nth-child(4),
+.rootScrollTable th:nth-child(5),
+.rootScrollTable th:nth-child(6) {
+  width: 150px;
 }
