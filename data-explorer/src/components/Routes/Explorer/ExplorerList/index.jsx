@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 import {
+  ASCENDING,
   FISHERY,
   SPECIES,
   COUNTRY,
   ECOLOGICAL,
   ECONOMIC,
   COMMUNITY,
-} from '../../../../ducks/sortColumn';
-import { ASCENDING } from '../../../../ducks/sortDirection';
+} from '../../../../strings';
 import ExplorerListIndicator from './ExplorerListIndicator';
 import styles from './index.scss';
 

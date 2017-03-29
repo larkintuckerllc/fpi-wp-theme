@@ -6,7 +6,7 @@ import {
   ECOLOGICAL,
   ECONOMIC,
   COMMUNITY,
-} from '../../../../ducks/sortColumn';
+} from '../../../../strings';
 import ExplorerSortColumn from './ExplorerSortColumn';
 import styles from './index.scss';
 

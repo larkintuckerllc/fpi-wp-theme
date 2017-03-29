@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { ASCENDING, DESCENDING } from '../../../../../ducks/sortDirection';
+import { ASCENDING, DESCENDING } from '../../../../../strings';
 import styles from './index.scss';
 
 const ExplorerSortColumn = ({

@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { colorScale } from '../../../../util/misc.js';
+import { colorScale, scaleWidth } from '../../../../util/misc.js';
 import styles from './index.scss';
 
-const scaleWidth = v => 100 * ((v - 1) / 5);
 class WorldSnackbar extends Component {
   constructor() {
     super();

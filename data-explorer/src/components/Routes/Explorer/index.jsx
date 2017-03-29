@@ -1,45 +1,73 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import * as fromReactRouterRedux from 'react-router-redux';
 import { getIndicators } from '../../../ducks/indicators';
-import * as fromSortDirection from '../../../ducks/sortDirection';
-import * as fromSortColumn from '../../../ducks/sortColumn';
+import { FISHERY, ASCENDING } from '../../../strings';
 import ExplorerSort from './ExplorerSort';
 import ExplorerList from './ExplorerList';
 import styles from './index.scss';
 
-const Explorer = ({
-  indicators,
-  setSortColumn,
-  setSortDirection,
-  sortColumn,
-  sortDirection,
-}) => (
-  <div id={styles.root}>
-    <ExplorerSort
-      sortColumn={sortColumn}
-      sortDirection={sortDirection}
-      setSortColumn={setSortColumn}
-      setSortDirection={setSortDirection}
-    />
-    <ExplorerList
-      indicators={indicators}
-      sortColumn={sortColumn}
-      sortDirection={sortDirection}
-    />
-  </div>
-);
+class Explorer extends Component {
+  constructor() {
+    super();
+    this.setSortColumn = this.setSortColumn.bind(this);
+    this.setSortDirection = this.setSortDirection.bind(this);
+  }
+  setSortColumn(sortColumn) {
+    const {
+      params: {
+        direction,
+      },
+      push,
+    } = this.props;
+    const sortDirection = direction !== undefined ? direction : ASCENDING;
+    push(`/sort/${sortColumn}/${sortDirection}`);
+  }
+  setSortDirection(sortDirection) {
+    const {
+      params: {
+        column,
+      },
+      push,
+    } = this.props;
+    const sortColumn = column !== undefined ? column : FISHERY;
+    push(`/sort/${sortColumn}/${sortDirection}`);
+  }
+  render() {
+    const {
+      indicators,
+      params: {
+        column,
+        direction,
+      },
+    } = this.props;
+    const sortColumn = column !== undefined ? column : FISHERY;
+    const sortDirection = direction !== undefined ? direction : ASCENDING;
+    return (
+      <div id={styles.root}>
+        <ExplorerSort
+          sortColumn={sortColumn}
+          sortDirection={sortDirection}
+          setSortColumn={this.setSortColumn}
+          setSortDirection={this.setSortDirection}
+        />
+        <ExplorerList
+          indicators={indicators}
+          sortColumn={sortColumn}
+          sortDirection={sortDirection}
+        />
+      </div>
+    );
+  }
+}
 Explorer.propTypes = {
   indicators: PropTypes.array.isRequired,
-  setSortColumn: PropTypes.func.isRequired,
-  setSortDirection: PropTypes.func.isRequired,
-  sortColumn: PropTypes.string.isRequired,
-  sortDirection: PropTypes.string.isRequired,
+  params: PropTypes.object.isRequired,
+  push: PropTypes.func.isRequired,
 };
 export default connect(state => ({
   indicators: getIndicators(state),
-  sortColumn: fromSortColumn.getSortColumn(state),
-  sortDirection: fromSortDirection.getSortDirection(state),
 }), {
-  setSortColumn: fromSortColumn.setSortColumn,
-  setSortDirection: fromSortDirection.setSortDirection,
-})(Explorer);
+  push: fromReactRouterRedux.push,
+}
+)(Explorer);

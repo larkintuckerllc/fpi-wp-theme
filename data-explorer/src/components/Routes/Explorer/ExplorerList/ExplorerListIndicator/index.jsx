@@ -6,12 +6,10 @@ const ExplorerListIndicator = ({ indicator }) => (
   <div className="panel panel-default">
     <div className="panel-body">
       <div id={styles.rootContainer}>
-        {/*
         <div
           id={styles.rootContainerLeft}
           style={{ backgroundImage: `url(${indicator.image})` }}
         />
-        */}
         <div id={styles.rootContainerRight}>
           <div id={styles.rootContainerRightTitle}>
             <a href={indicator.link}>{indicator.name}</a>
