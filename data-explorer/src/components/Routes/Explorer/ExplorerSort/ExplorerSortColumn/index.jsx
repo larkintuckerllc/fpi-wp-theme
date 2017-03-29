@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { ASCENDING, DESCENDING } from '../../../../../ducks/sortDirection';
+import styles from './index.scss';
 
 const ExplorerSortColumn = ({
   id,
@@ -8,21 +9,25 @@ const ExplorerSortColumn = ({
   sortColumn,
   sortDirection,
   title,
-}) => (
-  <div
-    onClick={() => {
-      if (sortColumn === id) {
-        if (sortDirection === ASCENDING) {
-          setSortDirection(DESCENDING);
-        } else {
-          setSortDirection(ASCENDING);
-        }
-      } else {
-        setSortColumn(id);
-      }
-    }}
-  >{title}</div>
-);
+}) => {
+  let rootArrow = styles.noArrow;
+  let handleClick = () => setSortColumn(id);
+  if (sortColumn === id) {
+    if (sortDirection === ASCENDING) {
+      rootArrow = styles.upArrow;
+      handleClick = () => setSortDirection(DESCENDING);
+    } else {
+      rootArrow = styles.downArrow;
+      handleClick = () => setSortDirection(ASCENDING);
+    }
+  }
+  return (
+    <div onClick={handleClick} >
+      <div id={rootArrow} />
+      <div id={styles.rootTitle}>{title}</div>
+    </div>
+  );
+};
 ExplorerSortColumn.propTypes = {
   id: PropTypes.string.isRequired,
   setSortColumn: PropTypes.func.isRequired,

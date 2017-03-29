@@ -1,0 +1,9 @@
+#root {
+  padding: 20px;
+}
+#root > div {
+  margin-top: 5px;
+}
+@media (min-width: 768px) {
+  flex: 0 0 auto;
+}

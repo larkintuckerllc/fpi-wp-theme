@@ -8,6 +8,7 @@ import {
   COMMUNITY,
 } from '../../../../ducks/sortColumn';
 import ExplorerSortColumn from './ExplorerSortColumn';
+import styles from './index.scss';
 
 const columnsIds = [
   FISHERY,
@@ -26,7 +27,7 @@ const columnsById = {
   COMMUNITY: { id: COMMUNITY, title: 'Community' },
 };
 const ExplorerSort = ({ setSortColumn, setSortDirection, sortColumn, sortDirection }) => (
-  <div>
+  <div id={styles.root}>
     {columnsIds.map(o => {
       const column = columnsById[o];
       return (

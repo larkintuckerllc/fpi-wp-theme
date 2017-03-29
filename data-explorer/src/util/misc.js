@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+export const scaleWidth = v => 100 * ((v - 1) / 5);
 export const colorScale = (value) => {
   if (value <= 1.5) return '#ff0000';
   if (value <= 2.0) return '#ff5050';

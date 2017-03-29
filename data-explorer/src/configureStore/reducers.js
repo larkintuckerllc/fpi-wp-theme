@@ -4,7 +4,6 @@ import { routerReducer } from 'react-router-redux';
 import indicators from '../ducks/indicators';
 import sortDirection from '../ducks/sortDirection';
 import sortColumn from '../ducks/sortColumn';
-import filterContinent from '../ducks/filterContinent';
 
 export default combineReducers({
   form: formReducer,
@@ -12,5 +11,4 @@ export default combineReducers({
   indicators,
   sortDirection,
   sortColumn,
-  filterContinent,
 });
