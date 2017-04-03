@@ -15,10 +15,17 @@
     div {
       box-sizing: border-box;
     }
+    #frame {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
     </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="frame">
+      <div id="root"></div>
+    </div>
     <script>
       window.indicators = [{
         id: 0,
