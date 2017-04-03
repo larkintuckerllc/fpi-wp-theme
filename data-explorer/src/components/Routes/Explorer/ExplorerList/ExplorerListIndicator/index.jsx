@@ -1,8 +1,13 @@
 import React, { PropTypes } from 'react';
 import { colorScale, scaleWidth } from '../../../../../util/misc';
 import styles from './index.scss';
+import {
+  ECOLOGICAL,
+  ECONOMIC,
+  COMMUNITY,
+} from '../../../../../strings';
 
-const ExplorerListIndicator = ({ indicator }) => (
+const ExplorerListIndicator = ({ count, indicator, sortColumn }) => (
   <div className="panel panel-default">
     <div className="panel-body">
       <div id={styles.rootContainer}>
@@ -11,8 +16,18 @@ const ExplorerListIndicator = ({ indicator }) => (
           style={{ backgroundImage: `url(${indicator.image})` }}
         />
         <div id={styles.rootContainerRight}>
-          <div id={styles.rootContainerRightTitle}>
-            <a href={indicator.link}>{indicator.name}</a>
+          <div>
+            {
+              (sortColumn === ECOLOGICAL ||
+              sortColumn === ECONOMIC ||
+              sortColumn === COMMUNITY) &&
+              <div className="badge pull-right">
+                {(indicator.index + 1).toString()} out of {count}
+              </div>
+            }
+            <div id={styles.rootContainerRightTitle}>
+              <a href={indicator.link}>{indicator.name}</a>
+            </div>
           </div>
           <div id={styles.rootContainerRightSpecies}>
             {indicator.species}
@@ -62,6 +77,8 @@ const ExplorerListIndicator = ({ indicator }) => (
   </div>
 );
 ExplorerListIndicator.propTypes = {
+  count: PropTypes.number.isRequired,
   indicator: PropTypes.object.isRequired,
+  sortColumn: PropTypes.string.isRequired,
 };
 export default ExplorerListIndicator;

@@ -1,5 +1,14 @@
 @media (min-width: 768px) {
   #root {
+    flex: 1 1 auto;
     display: flex;
+    align-items: stretch;
+  }
+  #rootLeft {
+    flex: 0 0 auto;
+  }
+  #rootRight {
+    flex: 1 0 auto;
+    overflow-y: auto;
   }
 }

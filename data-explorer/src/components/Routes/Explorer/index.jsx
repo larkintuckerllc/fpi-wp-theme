@@ -45,17 +45,21 @@ class Explorer extends Component {
     const sortDirection = direction !== undefined ? direction : ASCENDING;
     return (
       <div id={styles.root}>
-        <ExplorerSort
-          sortColumn={sortColumn}
-          sortDirection={sortDirection}
-          setSortColumn={this.setSortColumn}
-          setSortDirection={this.setSortDirection}
-        />
-        <ExplorerList
-          indicators={indicators}
-          sortColumn={sortColumn}
-          sortDirection={sortDirection}
-        />
+        <div id={styles.rootLeft}>
+          <ExplorerSort
+            sortColumn={sortColumn}
+            sortDirection={sortDirection}
+            setSortColumn={this.setSortColumn}
+            setSortDirection={this.setSortDirection}
+          />
+        </div>
+        <div id={styles.rootRight}>
+          <ExplorerList
+            indicators={indicators}
+            sortColumn={sortColumn}
+            sortDirection={sortDirection}
+          />
+        </div>
       </div>
     );
   }

@@ -38,15 +38,68 @@
   endwhile;
   wp_reset_query();
 ?>
-<?php get_header(); ?>
-<?php while (have_posts()) : the_post(); ?>
-  <div>&nbsp;</div>
-  <div class="container">
-    <div id="root"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>fpi</title>
+  <?php wp_head() ?>
+  <style>
+    html, body {
+      height: 100%;
+    }
+    #frame {
+      height: 100%;
+    }
+    @media (min-width: 768px) {
+      #frame {
+        display: flex;
+        flex-direction: column;
+      }
+      #frame__menu, #frame__footer {
+        flex: 0 0 auto;
+      }
+      #root {
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="frame">
+    <div id="frame__header">
+      <div class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="../" class="navbar-brand">FPI</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar-main">
+            <?php wp_nav_menu(array('theme_location' => 'header-menu', 'menu_class' => 'nav navbar-nav')); ?>
+            <?php wp_nav_menu(array('theme_location' => 'tool-menu', 'menu_class' => 'nav navbar-nav navbar-right')); ?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="root" class="container">
+    </div>
+    <div id="frame__footer">
+      <div id="my_footer" class="container">
+        <hr>
+        <footer>
+          <p>&copy; 2017 fpi</p>
+        </footer>
+      </div>
+    </div>
   </div>
   <script>
     window.indicators = <?php echo json_encode( $indicators ); ?>;
     window.baseUrl = '<?php echo get_template_directory_uri(); ?>/global-scores/dist/';
   </script>
-  <?php get_footer(); ?>
-<?php endwhile; ?>
+  <?php wp_footer() ?>
+</body>
+</html>

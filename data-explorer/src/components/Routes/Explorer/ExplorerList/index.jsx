@@ -42,12 +42,22 @@ const ExplorerList = ({ indicators, sortColumn, sortDirection }) => {
     compareAsc :
     compareDesc;
   indicators.sort(compare);
+  for (let i = 0; i < indicators.length; i += 1) {
+    const indicator = indicators[i];
+    if (sortDirection === ASCENDING) {
+      indicator.index = indicators.length - i - 1;
+    } else {
+      indicator.index = i;
+    }
+  }
   return (
     <div id={styles.root}>
       {indicators.map(o => (
         <ExplorerListIndicator
           key={o.id}
           indicator={o}
+          count={indicators.length}
+          sortColumn={sortColumn}
         />
       ))}
     </div>

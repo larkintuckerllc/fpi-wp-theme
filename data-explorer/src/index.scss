@@ -1,8 +1,4 @@
-:global(html, body) {
-  margin: 0px;
-  padding: 0px;
-  font-family: sans-serif;
-}
-:global(div) {
-  box-sizing: border-box;
+:global(#root) {
+  display: flex;
+  flex-direction: column;
 }
