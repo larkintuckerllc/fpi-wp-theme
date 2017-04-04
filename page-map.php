@@ -1,17 +1,17 @@
 <?php
-  function fpi_global_scores_add_scripts() {
-    wp_register_script('fpi_global_scores_vendor',
+  function fpi_map_add_scripts() {
+    wp_register_script('fpi_map_vendor',
       get_template_directory_uri() .
-      '/global-scores/dist/vendor.bundle.js',
+      '/map/dist/vendor.bundle.js',
       array(), '2017020101', true);
-    wp_register_script('fpi_global_scores_main',
+    wp_register_script('fpi_map_main',
       get_template_directory_uri() .
-      '/global-scores/dist/main.bundle.js',
-      array('fpi_global_scores_vendor'), '2017020101', true);
-    wp_enqueue_script('fpi_global_scores_vendor');
-    wp_enqueue_script('fpi_global_scores_main');
+      '/map/dist/main.bundle.js',
+      array('fpi_map_vendor'), '2017020101', true);
+    wp_enqueue_script('fpi_map_vendor');
+    wp_enqueue_script('fpi_map_main');
   }
-  add_action('wp_enqueue_scripts', 'fpi_global_scores_add_scripts');
+  add_action('wp_enqueue_scripts', 'fpi_map_add_scripts');
 ?>
 <?php
   $indicators = array();
@@ -40,7 +40,7 @@
   <div id="root"></div>
   <script>
     window.indicators = <?php echo json_encode( $indicators ); ?>;
-    window.baseUrl = '<?php echo get_template_directory_uri(); ?>/global-scores/dist/';
+    window.baseUrl = '<?php echo get_template_directory_uri(); ?>/map/dist/';
   </script>
   <?php get_footer(); ?>
 <?php endwhile; ?>

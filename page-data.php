@@ -1,17 +1,17 @@
 <?php
-  function fpi_data_explorer_add_scripts() {
-    wp_register_script('fpi_data_explorer_vendor',
+  function fpi_data_add_scripts() {
+    wp_register_script('fpi_data_vendor',
       get_template_directory_uri() .
-      '/data-explorer/dist/vendor.bundle.js',
+      '/data/dist/vendor.bundle.js',
       array(), '2017020101', true);
-    wp_register_script('fpi_data_explorer_main',
+    wp_register_script('fpi_data_main',
       get_template_directory_uri() .
-      '/data-explorer/dist/main.bundle.js',
-      array('fpi_data_explorer_vendor'), '2017020101', true);
-    wp_enqueue_script('fpi_data_explorer_vendor');
-    wp_enqueue_script('fpi_data_explorer_main');
+      '/data/dist/main.bundle.js',
+      array('fpi_data_vendor'), '2017020101', true);
+    wp_enqueue_script('fpi_data_vendor');
+    wp_enqueue_script('fpi_data_main');
   }
-  add_action('wp_enqueue_scripts', 'fpi_data_explorer_add_scripts');
+  add_action('wp_enqueue_scripts', 'fpi_data_add_scripts');
 ?>
 <?php
   $indicators = array();

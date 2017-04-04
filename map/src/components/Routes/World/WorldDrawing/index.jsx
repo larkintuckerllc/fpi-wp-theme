@@ -6,7 +6,8 @@ import './world-countries.json';
 import styles from './index.scss';
 
 const CIRCLE_RADIUS = 0.75;
-const RADIUS = 50;
+const RADIUS_X = 50;
+const RADIUS_Y = 75;
 const d3 = { ...d3Core, ...d3Geo };
 const circle = d3.geoCircle();
 class WorldDrawing extends Component {
@@ -27,22 +28,22 @@ class WorldDrawing extends Component {
     const selected = indicator !== undefined ? indicator.id : null;
     this.rootEl = d3.select(`#${styles.root}`);
     this.rootSpaceEl = this.rootEl.append('rect')
-      .attr('x', -1 * RADIUS)
-      .attr('y', -1 * RADIUS)
-      .attr('width', RADIUS * 2)
-      .attr('height', RADIUS * 2)
+      .attr('x', -1 * RADIUS_X)
+      .attr('y', -1 * RADIUS_Y)
+      .attr('width', RADIUS_X * 2)
+      .attr('height', RADIUS_Y * 2)
       .attr('id', styles.rootSpace);
     this.rootGlobeEl = this.rootEl.append('circle')
       .attr('cx', 0)
       .attr('cy', 0)
-      .attr('r', RADIUS)
+      .attr('r', RADIUS_X)
       .attr('id', styles.rootGlobe);
     const rootCountriesEl = this.rootEl.append('g');
     const rootIndicatorsEl = this.rootEl.append('g');
     this.projection = d3
       .geoOrthographic()
       .translate([0, 0])
-      .scale(RADIUS);
+      .scale(RADIUS_X);
     this.path = d3.geoPath().projection(this.projection);
     d3.json(`${window.baseUrl}world-countries.json`, countries => {
       rootCountriesEl
@@ -112,7 +113,7 @@ class WorldDrawing extends Component {
     const selected = indicator !== undefined ? indicator.id : null;
     if (this.rootCountriesElSelection === undefined) return;
     this.projection.rotate(rotation);
-    this.projection.scale(RADIUS * scale);
+    this.projection.scale(RADIUS_X * scale);
     window.requestAnimationFrame(() => {
       this.rootGlobeEl.attr('r', this.projection.scale());
       this.rootCountriesElSelection
@@ -142,8 +143,8 @@ class WorldDrawing extends Component {
     const position = d3Core.mouse(this.rootEl.node());
     const speed = 1 / scale;
     if (
-      Math.abs(position[0] - this.startPosition[0]) > RADIUS / 10 ||
-      Math.abs(position[1] - this.startPosition[1]) > RADIUS / 10
+      Math.abs(position[0] - this.startPosition[0]) > RADIUS_X / 10 ||
+      Math.abs(position[1] - this.startPosition[1]) > RADIUS_X / 10
     ) {
       this.mousePanned = true;
     }
@@ -208,7 +209,7 @@ class WorldDrawing extends Component {
     return (
       <svg
         id={styles.root}
-        viewBox={`-${RADIUS} -${RADIUS} ${RADIUS * 2} ${RADIUS * 2}`}
+        viewBox={`-${RADIUS_X} -${RADIUS_Y} ${RADIUS_X * 2} ${RADIUS_Y * 2}`}
       />
     );
   }
