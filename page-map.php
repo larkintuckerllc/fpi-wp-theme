@@ -36,6 +36,9 @@
   wp_reset_query();
 ?>
 <?php get_header(); ?>
+<div class="container">
+  <h4>Map</h4>
+</div>
 <div id="root"></div>
 <script>
   window.indicators = <?php echo json_encode( $indicators ); ?>;

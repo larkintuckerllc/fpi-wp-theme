@@ -1,7 +1,7 @@
     <div id="my_footer" class="container">
       <hr>
       <footer>
-        <p>&copy; 2017 fpi</p>
+        <p>&copy; 2017 Placeholder</p>
       </footer>
     </div>
     <?php wp_footer() ?>

@@ -55,3 +55,13 @@ img.alignleft, img.alignright, img.aligncenter {
 body {
   padding-top: 60px;
 }
+#home_body__news {
+  margin-top: 40px;
+}
+.home_body__news__item__image {
+  height: 200px;
+  background-color: rgb(204, 204, 204);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
