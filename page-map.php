@@ -36,11 +36,9 @@
   wp_reset_query();
 ?>
 <?php get_header(); ?>
-<?php while (have_posts()) : the_post(); ?>
-  <div id="root"></div>
-  <script>
-    window.indicators = <?php echo json_encode( $indicators ); ?>;
-    window.baseUrl = '<?php echo get_template_directory_uri(); ?>/map/dist/';
-  </script>
-  <?php get_footer(); ?>
-<?php endwhile; ?>
+<div id="root"></div>
+<script>
+  window.indicators = <?php echo json_encode( $indicators ); ?>;
+  window.baseUrl = '<?php echo get_template_directory_uri(); ?>/map/dist/';
+</script>
+<?php get_footer(); ?>

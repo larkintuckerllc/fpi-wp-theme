@@ -293,7 +293,6 @@
   }
   function fpi_register_my_menus() {
     register_nav_menu('header-menu',__( 'Header Menu' ));
-    register_nav_menu('tool-menu',__( 'Tool Menu' ));
   }
   add_action('wp_enqueue_scripts', 'fpi_add_theme_scripts');
   add_action( 'init', 'fpi_create_post_type' );

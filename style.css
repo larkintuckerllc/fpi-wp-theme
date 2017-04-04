@@ -27,14 +27,6 @@ img.alignleft, img.alignright, img.aligncenter {
   height: auto !important;
   max-width: 100% !important;
 }
-
-/* Bootstrap Overrides */
-.btn:focus, .btn:active, button:focus, button:active {
-  outline: none !important;
-}
-.navbar {
-  margin-bottom: 0px !important;
-}
 @media (min-width: 768px) {
   img.alignright {
      float: right !important;
@@ -44,4 +36,22 @@ img.alignleft, img.alignright, img.aligncenter {
      float: left !important;
      margin-right: 10px !important;
   }
+}
+
+/* Bootstrap Overrides */
+.btn:focus, .btn:active, button:focus, button:active {
+  outline: none !important;
+}
+.navbar-brand {
+  padding: 9.5px 15px;
+}
+.jumbotron {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Custom */
+body {
+  padding-top: 60px;
 }

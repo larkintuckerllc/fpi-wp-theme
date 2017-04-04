@@ -68,7 +68,7 @@
 <body>
   <div id="frame">
     <div id="frame__header">
-      <div class="navbar navbar-default">
+      <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
             <a href="../" class="navbar-brand">FPI</a>
@@ -79,8 +79,7 @@
             </button>
           </div>
           <div class="navbar-collapse collapse" id="navbar-main">
-            <?php wp_nav_menu(array('theme_location' => 'header-menu', 'menu_class' => 'nav navbar-nav')); ?>
-            <?php wp_nav_menu(array('theme_location' => 'tool-menu', 'menu_class' => 'nav navbar-nav navbar-right')); ?>
+            <?php wp_nav_menu(array('theme_location' => 'header-menu', 'menu_class' => 'nav navbar-nav navbar-right')); ?>
           </div>
         </div>
       </div>
