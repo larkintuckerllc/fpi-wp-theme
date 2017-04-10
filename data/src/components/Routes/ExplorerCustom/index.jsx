@@ -12,7 +12,17 @@ class Explorer extends Component {
   constructor() {
     super();
     this.setSortColumn = this.setSortColumn.bind(this);
+    this.setSortCustom = this.setSortCustom.bind(this);
     this.setSortDirection = this.setSortDirection.bind(this);
+  }
+  setSortCustom(ecological, economic, community) {
+    const {
+      params: {
+        direction,
+      },
+      push,
+    } = this.props;
+    push(`/sort/${CUSTOM}/${direction}/${ecological}/${economic}/${community}`);
   }
   setSortColumn(sortColumn) {
     const {
@@ -25,7 +35,7 @@ class Explorer extends Component {
       push,
     } = this.props;
     if (sortColumn === CUSTOM) {
-      push(`/sort/${sortColumn}/${direction}/${community}/${ecological}/${economic}`);
+      push(`/sort/${sortColumn}/${direction}/${ecological}/${economic}/${community}`);
       return;
     }
     push(`/sort/${sortColumn}/${direction}`);
@@ -39,7 +49,7 @@ class Explorer extends Component {
       },
       push,
     } = this.props;
-    push(`/sort/${CUSTOM}/${sortDirection}/${community}/${ecological}/${economic}`);
+    push(`/sort/${CUSTOM}/${sortDirection}/${ecological}/${economic}/${community}`);
   }
   render() {
     const {
@@ -64,10 +74,14 @@ class Explorer extends Component {
             community={community}
             ecological={ecological}
             economic={economic}
+            setSortCustom={this.setSortCustom}
           />
         </div>
         <div id={styles.rootRight}>
           <ExplorerList
+            community={community}
+            ecological={ecological}
+            economic={economic}
             indicators={indicators}
             sortColumn={CUSTOM}
             sortDirection={direction}
