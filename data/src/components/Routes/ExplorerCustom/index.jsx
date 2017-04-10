@@ -2,9 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as fromReactRouterRedux from 'react-router-redux';
 import { getIndicators } from '../../../ducks/indicators';
-import { AVG, CUSTOM, FISHERY, ASCENDING } from '../../../strings';
+import { CUSTOM } from '../../../strings';
 import ExplorerSort from '../../ExplorerSort';
 import ExplorerList from '../../ExplorerList';
+import ExplorerCustomSort from './ExplorerCustomSort';
 import styles from './index.scss';
 
 class Explorer extends Component {
@@ -16,52 +17,60 @@ class Explorer extends Component {
   setSortColumn(sortColumn) {
     const {
       params: {
+        community,
         direction,
+        ecological,
+        economic,
       },
       push,
     } = this.props;
-    const sortDirection = direction !== undefined ? direction : ASCENDING;
     if (sortColumn === CUSTOM) {
-      push(`/sort/${sortColumn}/${sortDirection}/${AVG}/${AVG}/${AVG}`);
+      push(`/sort/${sortColumn}/${direction}/${community}/${ecological}/${economic}`);
       return;
     }
-    push(`/sort/${sortColumn}/${sortDirection}`);
+    push(`/sort/${sortColumn}/${direction}`);
   }
   setSortDirection(sortDirection) {
     const {
       params: {
-        column,
+        community,
+        ecological,
+        economic,
       },
       push,
     } = this.props;
-    const sortColumn = column !== undefined ? column : FISHERY;
-    push(`/sort/${sortColumn}/${sortDirection}`);
+    push(`/sort/${CUSTOM}/${sortDirection}/${community}/${ecological}/${economic}`);
   }
   render() {
     const {
       indicators,
       params: {
-        column,
+        community,
         direction,
+        ecological,
+        economic,
       },
     } = this.props;
-    const sortColumn = column !== undefined ? column : FISHERY;
-    const sortDirection = direction !== undefined ? direction : ASCENDING;
     return (
       <div id={styles.root}>
         <div id={styles.rootLeft}>
           <ExplorerSort
-            sortColumn={sortColumn}
-            sortDirection={sortDirection}
+            sortColumn={CUSTOM}
+            sortDirection={direction}
             setSortColumn={this.setSortColumn}
             setSortDirection={this.setSortDirection}
+          />
+          <ExplorerCustomSort
+            community={community}
+            ecological={ecological}
+            economic={economic}
           />
         </div>
         <div id={styles.rootRight}>
           <ExplorerList
             indicators={indicators}
-            sortColumn={sortColumn}
-            sortDirection={sortDirection}
+            sortColumn={CUSTOM}
+            sortDirection={direction}
           />
         </div>
       </div>

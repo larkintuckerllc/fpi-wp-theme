@@ -7,7 +7,8 @@ import {
   ECOLOGICAL,
   ECONOMIC,
   COMMUNITY,
-} from '../../../../strings';
+  CUSTOM,
+} from '../../strings';
 import ExplorerListIndicator from './ExplorerListIndicator';
 import styles from './index.scss';
 
@@ -20,6 +21,7 @@ const ExplorerList = ({ indicators, sortColumn, sortDirection }) => {
   compareLookup[ECOLOGICAL] = 'ecological';
   compareLookup[ECONOMIC] = 'economic';
   compareLookup[COMMUNITY] = 'community';
+  compareLookup[CUSTOM] = 'name';
   const compareAsc = (a, b) => {
     if (a[compareLookup[sortColumn]] < b[compareLookup[sortColumn]]) {
       return -1;

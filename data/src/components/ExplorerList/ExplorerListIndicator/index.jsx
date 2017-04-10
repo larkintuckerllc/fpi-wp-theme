@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
-import { colorScale, scaleWidth } from '../../../../../util/misc';
+import { colorScale, scaleWidth } from '../../../util/misc';
 import styles from './index.scss';
 import {
   ECOLOGICAL,
   ECONOMIC,
   COMMUNITY,
-} from '../../../../../strings';
+} from '../../../strings';
 
 const ExplorerListIndicator = ({ count, indicator, sortColumn }) => (
   <div className="panel panel-default">

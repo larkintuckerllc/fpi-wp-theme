@@ -6,7 +6,8 @@ import {
   ECOLOGICAL,
   ECONOMIC,
   COMMUNITY,
-} from '../../../../strings';
+  CUSTOM,
+} from '../../strings';
 import ExplorerSortColumn from './ExplorerSortColumn';
 import styles from './index.scss';
 
@@ -17,6 +18,7 @@ const columnsIds = [
   ECOLOGICAL,
   ECONOMIC,
   COMMUNITY,
+  CUSTOM,
 ];
 const columnsById = {
   FISHERY: { id: FISHERY, title: 'Fishery' },
@@ -25,6 +27,7 @@ const columnsById = {
   ECOLOGICAL: { id: ECOLOGICAL, title: 'Ecological' },
   ECONOMIC: { id: ECONOMIC, title: 'Economic' },
   COMMUNITY: { id: COMMUNITY, title: 'Community' },
+  CUSTOM: { id: CUSTOM, title: 'Custom' },
 };
 const ExplorerSort = ({ setSortColumn, setSortDirection, sortColumn, sortDirection }) => (
   <div id={styles.root}>
