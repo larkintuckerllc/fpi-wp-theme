@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as fromReactRouterRedux from 'react-router-redux';
+import { get } from '../../../apis/dataCustom';
 import { getIndicators } from '../../../ducks/indicators';
 import { CUSTOM } from '../../../strings';
 import ExplorerSort from '../../ExplorerSort';
@@ -22,6 +23,9 @@ class Explorer extends Component {
       },
       push,
     } = this.props;
+    get(`${ecological}-${economic}-${community}`)
+      .then(() => {})
+      .catch(() => {});
     push(`/sort/${CUSTOM}/${direction}/${ecological}/${economic}/${community}`);
   }
   setSortColumn(sortColumn) {
