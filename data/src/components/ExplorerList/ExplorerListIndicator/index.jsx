@@ -5,6 +5,7 @@ import {
   ECOLOGICAL,
   ECONOMIC,
   COMMUNITY,
+  CUSTOM,
 } from '../../../strings';
 
 const ExplorerListIndicator = ({ count, indicator, sortColumn }) => (
@@ -20,7 +21,8 @@ const ExplorerListIndicator = ({ count, indicator, sortColumn }) => (
             {
               (sortColumn === ECOLOGICAL ||
               sortColumn === ECONOMIC ||
-              sortColumn === COMMUNITY) &&
+              sortColumn === COMMUNITY ||
+              sortColumn === CUSTOM) &&
               <div className="badge pull-right">
                 {(indicator.index + 1).toString()} out of {count}
               </div>

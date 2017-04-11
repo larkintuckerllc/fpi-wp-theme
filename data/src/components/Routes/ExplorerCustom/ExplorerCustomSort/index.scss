@@ -1,11 +1,14 @@
 #root {
-  margin-top: 20px;
+  margin-top: 5px;
+  border-collapse: collapse;
 }
 #root > thead {
   background-color: #e6e6e6;
 }
 #root td, #root th {
   padding: 5px;
+  border: 1px solid black;
+  text-align: center;
 }
 #rootEcological {
   display: block;
