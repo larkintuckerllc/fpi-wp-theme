@@ -1,5 +1,27 @@
 <?php
-  function fpi_create_post_type() {
+  function fpi_create_post_type_data_custom() {
+    $labels = array(
+     'name' => __( 'Custom Choices', 'fpi' ),
+     'singular_name' => __( 'Custom Choice', 'fpi' ),
+     'add_new' => __( 'Add New' , 'fpi' ),
+     'add_new_item' => __( 'Add New Custom Choice' , 'fpi' ),
+     'edit_item' =>  __( 'Edit Custom Choice' , 'fpi' ),
+     'new_item' => __( 'New Custom Choice' , 'fpi' ),
+     'view_item' => __('View Custom Choice', 'fpi'),
+     'search_items' => __('Search Custom Choice', 'fpi'),
+     'not_found' =>  __('No Custom Choices found', 'fpi'),
+     'not_found_in_trash' => __('No Custom Choices found in Trash', 'fpi'),
+    );
+    register_post_type( 'fpi_data_custom',
+      array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-list-view',
+      )
+    );
+  }
+  function fpi_create_post_type_indicator() {
     $labels = array(
      'name' => __( 'Indicators', 'fpi' ),
      'singular_name' => __( 'Indicator', 'fpi' ),
@@ -294,7 +316,31 @@
   function fpi_register_my_menus() {
     register_nav_menu('header-menu',__( 'Header Menu' ));
   }
+  function fpi_add_rewrite_rules() {
+    add_rewrite_rule( 'fpi-data-custom/(.*)', 'index.php?fpi_data_custom=$matches[1]', 'top' );
+  }
+  function fpi_query_vars( $query_vars ) {
+    $query_vars[] = 'fpi_data_custom';
+    return $query_vars;
+  }
+  function fpi_parse_request( $query ) {
+    if ( array_key_exists( 'fpi_data_custom', $query->query_vars ) ) {
+      wp_insert_post(
+        array(
+          'post_type' => 'fpi_data_custom',
+          'post_status' => 'publish',
+          'post_title' => $query->query_vars['fpi_data_custom'],
+        )
+      );
+      echo '{}';
+      exit();
+    }
+  }
+  add_action( 'init', 'fpi_create_post_type_data_custom' );
   add_action('wp_enqueue_scripts', 'fpi_add_theme_scripts');
-  add_action( 'init', 'fpi_create_post_type' );
+  add_action( 'init', 'fpi_create_post_type_indicator' );
   add_action( 'init', 'fpi_register_my_menus' );
   add_action( 'single_template', 'fpi_single_template');
+  add_action( 'init', 'fpi_add_rewrite_rules' );
+  add_action( 'query_vars', 'fpi_query_vars' );
+  add_action( 'parse_request', 'fpi_parse_request' );
