@@ -299,7 +299,7 @@
       '/bower_components/bootstrap/dist/css/bootstrap-bootswatch.min.css',
       array(), '2016121701', 'all');
     wp_register_style('style', get_stylesheet_uri(),
-      array(), '2016123001', 'all');
+      array(), '2017042502', 'all');
     wp_register_script('jquery',
       get_template_directory_uri() .
       '/bower_components/jquery/dist/jquery.min.js',
