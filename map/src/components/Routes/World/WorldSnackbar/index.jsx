@@ -26,7 +26,9 @@ class WorldSnackbar extends Component {
           />
           <div id={styles.rootContainerRight}>
             <div id={styles.rootContainerRightTitle}>
-              <a href={indicator.link}>{indicator.name}</a>
+              <a href={window.fpiEmbed ? `${indicator.link}?fpi_embed=true` : indicator.link}>
+                {indicator.name}
+              </a>
             </div>
             <div className={styles.rootContainerRightIndicator}>
               <div className={styles.rootContainerRightIndicatorTitle}>Ecological</div>

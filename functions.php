@@ -321,6 +321,7 @@
   }
   function fpi_query_vars( $query_vars ) {
     $query_vars[] = 'fpi_data_custom';
+    $query_vars[] = 'fpi_embed';
     return $query_vars;
   }
   function fpi_parse_request( $query ) {

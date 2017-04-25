@@ -55,6 +55,9 @@ img.alignleft, img.alignright, img.aligncenter {
 body {
   padding-top: 60px;
 }
+.body--embed {
+  padding-top: 0px;
+}
 #home_body__news {
   margin-top: 40px;
 }
