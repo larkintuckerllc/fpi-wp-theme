@@ -2,15 +2,15 @@
 }
 #fpi_indicator_root__hero {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items:center;
   height: 200px;
   overflow: hidden;
 }
-#fpi_indicator_root__hero__map {
+#fpi_indicator_root__hero__workaround {
   display: none;
-  width: 100%;
+}
+#fpi_indicator_root__hero__map {
+  width: 10px;
+  height: 10px;
 }
 #fpi_indicator_root__hero__map__globe {
   fill: rgb(230, 230, 230);
@@ -36,8 +36,24 @@
   #fpi_indicator_root__hero {
     height: 240px;
   }
-  #fpi_indicator_root__hero__map {
+  #fpi_indicator_root__hero__workaround {
     display: block;
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: red;
+  }
+  #fpi_indicator_root__hero__map {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
   }
   #fpi_indicator_root__hero__image {
     position: absolute;
@@ -45,13 +61,21 @@
     top: 20px;
   }
   #fpi_indicator_root__content {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
   }
   #fpi_indicator_root__content__data {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 450px;
+    -ms-flex: 0 0 450px;
     flex: 0 0 450px;
   }
   #fpi_indicator_root__content__overview {
     margin-left: 20px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 0px;
+    -ms-flex: 1 0 0px;
     flex: 1 0 0px;
   }
 }
@@ -59,20 +83,31 @@
   margin-top: 20px;
 }
 .fpi_indicator_root__content__data__indicator {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
   margin-top: 20px;
 }
 .fpi_indicator_root__content__data__indicator__title {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100px;
+  -ms-flex: 0 0 100px;
   flex: 0 0 100px;
   font-weight: bold;
 }
 .fpi_indicator_root__content__data__indicator__value {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 0px;
+  -ms-flex: 1 0 0px;
   flex: 1 0 0px;
   margin-left: 10px;
   background-color: rgb(230, 230, 230);
 }
 .fpi_indicator_root__content__data__indicator__value__scale {
+  position: absolute;
+  left: 0px;
+  top: 0px;
   height: 100%;
   transition: width 2s;
 }
@@ -80,12 +115,17 @@
   margin-top: 10px;
 }
 .fpi_indicator_root__content__data__comparison {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: flex-end;
   align-items: flex-end;
   margin-top: 10px;
   height: 100px;
   background-color: rgb(230, 230, 230);
 }
 .fpi_indicator_root__content__data__comparison__value {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 0px;
   flex: 1 0 0px;
 }

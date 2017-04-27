@@ -207,10 +207,12 @@ class WorldDrawing extends Component {
   render() {
     this.d3Render();
     return (
-      <svg
-        id={styles.root}
-        viewBox={`-${RADIUS_X} -${RADIUS_Y} ${RADIUS_X * 2} ${RADIUS_Y * 2}`}
-      />
+      <div id={styles.workaround}>
+        <svg
+          id={styles.root}
+          viewBox={`-${RADIUS_X} -${RADIUS_Y} ${RADIUS_X * 2} ${RADIUS_Y * 2}`}
+        />
+      </div>
     );
   }
 }

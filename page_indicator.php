@@ -52,10 +52,12 @@
   <div id="fpi_indicator_root" class="container">
     <h4><a id="fpi_indicator_root__back">Back</a> &gt; <?php the_field('name') ?></h4>
     <div id="fpi_indicator_root__hero">
-      <svg
-        id="fpi_indicator_root__hero__map"
-        viewBox='-50 -50 100 100'
-      ></svg>
+      <div id="fpi_indicator_root__hero__workaround">
+        <svg
+          id="fpi_indicator_root__hero__map"
+          viewBox='-50 -50 100 100'
+        ></svg>
+      </div>
       <div
         id="fpi_indicator_root__hero__image"
         style="background-image: url(<?php the_field('image') ?>);"

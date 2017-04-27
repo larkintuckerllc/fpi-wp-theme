@@ -36,13 +36,14 @@
       .scale(RADIUS);
     var path = d3.geoPath().projection(projection);
     d3.json(window.baseUrl + 'world-countries.json', function(countries) {
+      window.console.log(countries);
       mapCountriesD3
         .selectAll('.fpi_indicator_root__hero__map__countries__feature')
         .data(countries.features)
         .enter()
         .append('path')
         .attr('class', 'fpi_indicator_root__hero__map__countries__feature')
-        .attr('d', d => path(d));
+        .attr('d', function(d) { return path(d); });
     });
     var indicator = d3.geoCircle()
       .center([Number(window.fpiLongitude), Number(window.fpiLatitude)])
@@ -62,7 +63,7 @@
     window.fpiIndicators.sort(function(a, b) {
         return Number(b.ecological) - Number(a.ecological);
     });
-    rankEcologicalEl.innerHTML = window.fpiIndicators.map(o => o.id).indexOf(window.fpiId) + 1;
+    rankEcologicalEl.innerHTML = window.fpiIndicators.map(function(o) { return o.id }).indexOf(window.fpiId) + 1;
     totalEcologicalEl.innerHTML = window.fpiIndicators.length;
     comparisonEcologicalD3
       .selectAll('.fpi_indicator_root__content__data__comparison__value')
@@ -80,7 +81,7 @@
     window.fpiIndicators.sort(function(a, b) {
         return Number(b.economic) - Number(a.economic);
     });
-    rankEconomicEl.innerHTML = window.fpiIndicators.map(o => o.id).indexOf(window.fpiId) + 1;
+    rankEconomicEl.innerHTML = window.fpiIndicators.map(function(o) { return o.id; }).indexOf(window.fpiId) + 1;
     totalEconomicEl.innerHTML = window.fpiIndicators.length;
     comparisonEconomicD3
       .selectAll('.fpi_indicator_root__content__data__comparison__value')
@@ -98,7 +99,7 @@
     window.fpiIndicators.sort(function(a, b) {
         return Number(b.community) - Number(a.community);
     });
-    rankCommunityEl.innerHTML = window.fpiIndicators.map(o => o.id).indexOf(window.fpiId) + 1;
+    rankCommunityEl.innerHTML = window.fpiIndicators.map(function(o) { return o.id; }).indexOf(window.fpiId) + 1;
     totalCommunityEl.innerHTML = window.fpiIndicators.length;
     comparisonCommunityD3
       .selectAll('.fpi_indicator_root__content__data__comparison__value')

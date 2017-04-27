@@ -37,11 +37,15 @@
   font-weight: bold;
 }
 .rootContainerRightIndicatorValue {
+  position: relative;
   flex: 1 0 0px;
   margin-left: 10px;
   background-color: rgb(230, 230, 230);
 }
 .rootContainerRightIndicatorValueScale {
+  position: absolute;
+  left: 0px;
+  top: 0px;
   height: 100%;
 }
 @media (min-width: 768px) {

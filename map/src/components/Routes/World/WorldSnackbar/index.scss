@@ -58,11 +58,15 @@
   flex: 0 0 100px;
 }
 .rootContainerRightIndicatorValue {
+  position: relative;
   flex: 1 0 0px;
   margin-left: 10px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .rootContainerRightIndicatorValueScale {
+  position: absolute;
+  left: 0px;
+  top: 0px;
   height: 100%;
   transition: width 2s;
 }
