@@ -34,9 +34,6 @@ const ExplorerListIndicator = ({ count, indicator, sortColumn }) => (
           <div id={styles.rootContainerRightSpecies}>
             {indicator.species}
           </div>
-          <div id={styles.rootContainerRightCountry}>
-            {indicator.country}
-          </div>
           <div className={styles.rootContainerRightIndicator}>
             <div className={styles.rootContainerRightIndicatorTitle}>Ecological</div>
             <div className={styles.rootContainerRightIndicatorValue}>

@@ -24,7 +24,7 @@
   font-size: 1.5em;
   font-weight: bold;
 }
-#rootContainerRightSpecies, #rootContainerRightCountry {
+#rootContainerRightSpecies {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -62,7 +62,7 @@
   #rootContainerRightTitle {
     max-width: 300px;
   }
-  #rootContainerRightSpecies, #rootContainerRightCountry {
+  #rootContainerRightSpecies {
     max-width: 350px;
   }
 }
@@ -70,7 +70,7 @@
   #rootContainerRightTitle {
     max-width: 500px;
   }
-  #rootContainerRightSpecies, #rootContainerRightCountry {
+  #rootContainerRightSpecies {
     max-width: 550px;
   }
 }
@@ -78,7 +78,7 @@
   #rootContainerRightTitle {
     max-width: 700px;
   }
-  #rootContainerRightSpecies, #rootContainerRightCountry {
+  #rootContainerRightSpecies {
     max-width: 750px;
   }
 }

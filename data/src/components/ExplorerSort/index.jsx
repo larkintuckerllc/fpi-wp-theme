@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import {
   FISHERY,
   SPECIES,
-  COUNTRY,
   ECOLOGICAL,
   ECONOMIC,
   COMMUNITY,
@@ -14,7 +13,6 @@ import styles from './index.scss';
 const columnsIds = [
   FISHERY,
   SPECIES,
-  COUNTRY,
   ECOLOGICAL,
   ECONOMIC,
   COMMUNITY,
@@ -23,7 +21,6 @@ const columnsIds = [
 const columnsById = {
   FISHERY: { id: FISHERY, title: 'Fishery' },
   SPECIES: { id: SPECIES, title: 'Species' },
-  COUNTRY: { id: COUNTRY, title: 'Country' },
   ECOLOGICAL: { id: ECOLOGICAL, title: 'Ecological' },
   ECONOMIC: { id: ECONOMIC, title: 'Economic' },
   COMMUNITY: { id: COMMUNITY, title: 'Community' },
