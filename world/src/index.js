@@ -1,7 +1,8 @@
-require('./index.css');
-var cute = require('./cute.jpg');
+import './index.css';
 
-var rootEl = document.getElementById('root');
-var imageEl = document.createElement('img');
+const cute = require('./cute.jpg');
+
+const rootEl = document.getElementById('root');
+const imageEl = document.createElement('img');
 imageEl.src = cute;
 rootEl.appendChild(imageEl);
