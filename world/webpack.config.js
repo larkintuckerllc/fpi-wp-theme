@@ -25,7 +25,17 @@ module.exports = env => ({
       }, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          use: 'css-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+              },
+            },
+            {
+              loader: 'postcss-loader',
+            },
+          ],
           fallback: 'style-loader',
         }),
       },

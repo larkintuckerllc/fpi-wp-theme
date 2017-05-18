@@ -7,9 +7,13 @@ import './index.css';
 
 const map = L.map('root').setView([0, 0], 0);
 L.tileLayer(
-  'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  // 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
   {
-    attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community',
+    // attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap,
+    // iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan,
+    // METI, Esri China (Hong Kong), and the GIS User Community',
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
   },
 ).addTo(map);
 for (let i = 0; i < window.indicators.length; i += 1) {
@@ -26,6 +30,25 @@ for (let i = 0; i < window.indicators.length; i += 1) {
       icon,
     },
   );
+  const indicatorHtml = (name: string, value: number) => (`
+    <div class="root__popup__indicator">
+      <div class="root__popup__indicator__name">
+        ${name}
+      </div>
+      <div class="root__popup__indicator__value">
+        <div
+          class="root__popup__indicator__value__container"
+          style="width: ${scaleWidth(value)}%"
+        >
+          <div
+            class="root__popup__indicator__value__container__bar"
+            style="background-color: ${colorScale(value)}"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  `);
   const html = `
     <div
       class="root__popup__hero"
@@ -37,23 +60,9 @@ for (let i = 0; i < window.indicators.length; i += 1) {
         ${indicator.name}
       </div>
     </div>
-    <div class="root__popup__indicator">
-      <div class="root__popup__indicator__name">
-        Ecological Performance
-      </div>
-      <div class="root__popup__indicator__value">
-        <div
-          class="root__popup__indicator__value__container"
-          style="width: ${scaleWidth(Number(indicator.ecological))}%"
-        >
-          <div
-            class="root__popup__indicator__value__container__bar"
-            style="background-color: ${colorScale(Number(indicator.ecological))}"
-          >
-          </div>
-        </div>
-      </div>
-    </div>
+    ${indicatorHtml('Ecological Performance', Number(indicator.ecological))}
+    ${indicatorHtml('Economic Performance', Number(indicator.economic))}
+    ${indicatorHtml('Community Performance', Number(indicator.community))}
     <div class="root__popup__scale">
       <div class="root__popup__scale__good">Good</div>
       <div>Poor</div>

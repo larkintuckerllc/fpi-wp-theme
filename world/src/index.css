@@ -10,9 +10,9 @@
 }
 .root__popup__hero {
   position: relative;
-  display: inline-block;
-  width: 150px;
-  height: 100px;
+  width: 100%;
+  height: 0px;
+  padding-bottom: 66%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
