@@ -1,9 +1,14 @@
 <?php
   function fpi_world_add_scripts() {
+    wp_register_style('fpi_world_style',
+      get_template_directory_uri() .
+      '/world/dist/styles.css',
+      array(), '2017051701', 'all');
     wp_register_script('fpi_world_main',
       get_template_directory_uri() .
       '/world/dist/main.bundle.js',
       array(), '2017051701', true);
+    wp_enqueue_style('fpi_world_style');
     wp_enqueue_script('fpi_world_main');
   }
   add_action('wp_enqueue_scripts', 'fpi_world_add_scripts');
