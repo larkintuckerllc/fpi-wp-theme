@@ -5,7 +5,16 @@ import L from 'leaflet';
 import { scaleWidth, colorScale } from './util';
 import './index.css';
 
-const map = L.map('root').setView([0, 0], 0);
+const rootEl = document.getElementById('root');
+const rootMapEl = document.createElement('div');
+rootMapEl.id = 'root__map';
+// $FlowFixMe
+rootEl.appendChild(rootMapEl);
+const rootTiles = document.createElement('div');
+rootTiles.id = 'root__tiles';
+// $FlowFixMe
+rootEl.appendChild(rootTiles);
+const map = L.map('root__map').setView([0, 0], 0);
 L.tileLayer(
   'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   // 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
@@ -31,17 +40,17 @@ for (let i = 0; i < window.indicators.length; i += 1) {
     },
   );
   const indicatorHtml = (name: string, value: number) => (`
-    <div class="root__popup__indicator">
-      <div class="root__popup__indicator__name">
+    <div class="root_map__popup__indicator">
+      <div class="root_map__popup__indicator__name">
         ${name}
       </div>
-      <div class="root__popup__indicator__value">
+      <div class="root_map__popup__indicator__value">
         <div
-          class="root__popup__indicator__value__container"
+          class="root_map__popup__indicator__value__container"
           style="width: ${scaleWidth(value)}%"
         >
           <div
-            class="root__popup__indicator__value__container__bar"
+            class="root_map__popup__indicator__value__container__bar"
             style="background-color: ${colorScale(value)}"
           >
           </div>
@@ -51,11 +60,11 @@ for (let i = 0; i < window.indicators.length; i += 1) {
   `);
   const html = `
     <div
-      class="root__popup__hero"
+      class="root_map__popup__hero"
       style="background-image: url(${indicator.image})"
     >
       <div
-        class="root__popup__hero__name"
+        class="root_map__popup__hero__name"
       >
         ${indicator.name}
       </div>
@@ -63,8 +72,8 @@ for (let i = 0; i < window.indicators.length; i += 1) {
     ${indicatorHtml('Ecological Performance', Number(indicator.ecological))}
     ${indicatorHtml('Economic Performance', Number(indicator.economic))}
     ${indicatorHtml('Community Performance', Number(indicator.community))}
-    <div class="root__popup__scale">
-      <div class="root__popup__scale__good">Good</div>
+    <div class="root_map__popup__scale">
+      <div class="root_map__popup__scale__good">Good</div>
       <div>Poor</div>
     </div>
   `;

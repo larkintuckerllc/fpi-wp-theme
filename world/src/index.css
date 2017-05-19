@@ -8,7 +8,16 @@
 #root div {
   box-sizing: border-box;
 }
-.root__popup__hero {
+#root__map {
+  position: absolute;
+  z-index: 1;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(64,64,64);
+}
+.root_map__popup__hero {
   position: relative;
   width: 100%;
   height: 0px;
@@ -17,7 +26,7 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-.root__popup__hero__name {
+.root_map__popup__hero__name {
   position: absolute;
   left: 0px;
   bottom: 0px;
@@ -31,34 +40,43 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.root__popup__indicator, .root__popup__scale {
+.root_map__popup__indicator, .root_map__popup__scale {
   margin-top: 5px;
 }
-.root__popup__indicator__name {
+.root_map__popup__indicator__name {
   border: 1px solid black;
   padding: 10px;
   text-align: center;
   background-color: rgb(220,220,220);
 }
-.root__popup__indicator__value {
+.root_map__popup__indicator__value {
   border-left: 1px solid black;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
   height: 30px;
 }
-.root__popup__indicator__value__container {
+.root_map__popup__indicator__value__container {
   height: 100%;
 }
-.root__popup__indicator__value__container__bar {
+.root_map__popup__indicator__value__container__bar {
   border-right: 1px solid black;
   height: 100%;
   animation-name: bar;
   animation-duration: 2s;
 }
-.root__popup__scale__good {
+.root_map__popup__scale__good {
   float: right;
 }
 @keyframes bar {
   from {width: 0%;}
   to {width: 100%;}
+}
+#root__tiles {
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  bottom: 0px;
+  width: 100px;
+  height: 100px;
+  background-color: red;
 }
