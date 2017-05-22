@@ -4,24 +4,83 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { scaleWidth, colorScale } from './util';
 import './index.css';
+import satellite from './img/satellite.png';
+import topo from './img/topo.png';
 
+const TILE_SRC = satellite;
+const TILE_ALT = 'satellite';
 const rootEl = document.getElementById('root');
+const rootTile = document.createElement('div');
+const rootTiles = document.createElement('div');
+const rootTileImage = document.createElement('img');
+let tileClosed = true;
+let map = null;
+let tileLayer = null;
+// MAP
 const rootMapEl = document.createElement('div');
 rootMapEl.id = 'root__map';
 // $FlowFixMe
 rootEl.appendChild(rootMapEl);
-const rootTiles = document.createElement('div');
+// TILES
 rootTiles.id = 'root__tiles';
+rootTiles.className = 'root__tiles--closed';
+rootTiles.innerHTML = `
+  <img id="root__tiles__satellite" src="${satellite}" height="50" width="50" alt="satellite" />
+  <img id="root__tiles__topo" src="${topo}" height="50" width="50" alt="topo" />
+`;
 // $FlowFixMe
 rootEl.appendChild(rootTiles);
-const map = L.map('root__map').setView([0, 0], 0);
-L.tileLayer(
+const rootTilesSatellite = document.getElementById('root__tiles__satellite');
+const rootTilesTopo = document.getElementById('root__tiles__topo');
+// $FlowFixMe
+rootTilesSatellite.addEventListener('click', () => {
+  rootTileImage.src = satellite;
+  rootTileImage.alt = 'satellite';
+  // $FlowFixMe
+  tileLayer.removeFrom(map);
+  tileLayer = L.tileLayer(
+    'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    {
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+    },
+  ).addTo(map);
+});
+// $FlowFixMe
+rootTilesTopo.addEventListener('click', () => {
+  rootTileImage.src = topo;
+  rootTileImage.alt = 'topo';
+  // $FlowFixMe
+  tileLayer.removeFrom(map);
+  tileLayer = L.tileLayer(
+    'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+    {
+      attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community',
+    },
+  ).addTo(map);
+});
+// TILE
+rootTile.id = 'root__tile';
+rootTile.addEventListener('click', () => {
+  if (tileClosed) {
+    rootTiles.className = '';
+  } else {
+    rootTiles.className = 'root__tiles--closed';
+  }
+  tileClosed = !tileClosed;
+});
+rootTileImage.src = TILE_SRC;
+rootTileImage.alt = TILE_ALT;
+rootTileImage.height = 50;
+rootTileImage.width = 50;
+rootTile.appendChild(rootTileImage);
+// $FlowFixMe
+rootEl.appendChild(rootTile);
+
+// LEAFLET
+map = L.map('root__map').setView([0, 0], 0);
+tileLayer = L.tileLayer(
   'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-  // 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
   {
-    // attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap,
-    // iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan,
-    // METI, Esri China (Hong Kong), and the GIS User Community',
     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
   },
 ).addTo(map);
