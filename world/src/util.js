@@ -10,3 +10,8 @@ export const colorScale = (value: number): string => {
   if (value <= 4.5) return '#66ff66';
   return '#00cc00';
 };
+export const initialZoom = (width: number): number => {
+  if (width < 768) return 1;
+  if (width < 992) return 2;
+  return 3;
+};

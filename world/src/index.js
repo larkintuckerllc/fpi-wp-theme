@@ -2,7 +2,7 @@
 import 'babel-polyfill';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { scaleWidth, colorScale } from './util';
+import { scaleWidth, colorScale, initialZoom } from './util';
 import './index.css';
 import satellite from './img/satellite.png';
 import topo from './img/topo.png';
@@ -77,7 +77,7 @@ rootTile.appendChild(rootTileImage);
 rootEl.appendChild(rootTile);
 
 // LEAFLET
-map = L.map('root__map').setView([0, 0], 0);
+map = L.map('root__map').setView([0, 0], initialZoom(window.innerWidth));
 tileLayer = L.tileLayer(
   'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   {
