@@ -1,5 +1,5 @@
 // @flow
-export const scaleWidth = (value: number): string => (100 * ((value - 1) / 5)).toString();
+export const scaleWidth = (value: number): string => (100 * ((value - 1) / 4)).toString();
 export const colorScale = (value: number): string => {
   if (value <= 1.5) return '#ff0000';
   if (value <= 2.0) return '#ff5050';

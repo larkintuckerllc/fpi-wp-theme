@@ -115,7 +115,7 @@
       });
     // HOISTED FUNCTIONS
     function scaleWidth(value) {
-      return 100 * ((value - 1) / 5);
+      return 100 * ((value - 1) / 4);
     }
     function scaleColor (value) {
       if (value <= 1.5) return '#ff0000';
