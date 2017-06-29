@@ -192,6 +192,15 @@
     				'max' => 5,
     				'step' => '',
     			),
+          array (
+    				'key' => 'field_fpi_indicator_description',
+    				'label' => 'Description',
+    				'name' => 'description',
+    				'type' => 'wysiwyg',
+    				'default_value' => '',
+    				'toolbar' => 'full',
+    				'media_upload' => 'no',
+    			),
     		),
     		'location' => array (
     			array (

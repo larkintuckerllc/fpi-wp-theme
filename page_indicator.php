@@ -158,8 +158,11 @@
         id="fpi_indicator_root__content__overview"
       >
         <p><b>Species:</b> <?php the_field('species') ?></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum iaculis nibh tempus condimentum. Sed libero tellus, euismod vitae orci at, faucibus malesuada erat. Nunc scelerisque cursus molestie. Mauris massa nibh, volutpat ac volutpat at, rutrum ac lectus. Nam nec pretium libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In augue sapien, mattis a mauris sit amet, dictum faucibus justo. Donec quam est, vulputate sed rutrum eget, dictum at lacus. Duis porta mollis pulvinar. Quisque placerat ante ac metus varius imperdiet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed eget mauris nisl. In placerat commodo libero ac varius. Curabitur blandit consectetur lacus ac imperdiet. Phasellus semper fermentum erat ut venenatis. Donec ultrices tincidunt enim pretium fermentum.</p>
-        <p>In bibendum id tortor vitae sagittis. Suspendisse vulputate dui eget fermentum efficitur. Mauris dictum tincidunt mollis. In non mollis nisl. Mauris leo tortor, vulputate sed elit non, elementum hendrerit velit. Nulla lacinia mattis est, consectetur commodo felis eleifend id. Nulla tortor neque, ultrices et pellentesque non, facilisis at tortor. Nullam eu eros vitae mi auctor auctor nec id lorem. Donec a mattis ante, vehicula suscipit arcu. Aenean cursus neque nibh, eget vestibulum sem congue in.</p>
+        <div
+          id="fpi_indicator_root__content__overview__description"
+        >
+          <?php the_field('description') ?>
+        </div>
       </div>
     </div>
   </div>
