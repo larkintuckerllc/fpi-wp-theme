@@ -1,14 +1,9 @@
 <?php get_header(); ?>
 <?php while (have_posts()) : the_post(); ?>
-  <div class="container">
-    <p><b><?php the_title(); ?></b><br />
-    <i><?php the_time('F j, Y'); ?></i><br /></p>
+  <div id="my_page" class="container">
+    <h3><?php the_title(); ?></h3>
+    <p><i><?php the_time('F j, Y'); ?></i></p>
     <?php the_content(); ?>
-    <?php
-    if (comments_open() || get_comments_number()) :
-      comments_template();
-    endif;
-    ?>
   </div>
   <?php get_footer(); ?>
 <?php endwhile; ?>
