@@ -50,6 +50,13 @@ img.alignleft, img.alignright, img.aligncenter {
   background-position: center;
   background-size: cover;
 }
+h3, h4 {
+  margin-top: 40px;
+}
+h5 {
+  margin-top: 40px;
+  font-weight: bold;
+}
 
 /* Custom */
 body {

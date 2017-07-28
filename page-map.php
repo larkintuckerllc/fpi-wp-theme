@@ -37,7 +37,7 @@
 ?>
 <?php get_header(); ?>
 <div class="container">
-  <h4>Map</h4>
+  <h3>Map</h3>
 </div>
 <div id="root"></div>
 <script>

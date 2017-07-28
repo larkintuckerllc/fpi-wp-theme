@@ -85,7 +85,7 @@
   </div>
   <div id="frame">
     <div class="frame-header container">
-      <h4>Data</h4>
+      <h3>Data</h3>
     </div>
     <div id="root" class="container">
     </div>

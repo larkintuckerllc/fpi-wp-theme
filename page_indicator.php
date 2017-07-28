@@ -50,7 +50,7 @@
 ?>
 <?php while (have_posts()) : the_post(); ?>
   <div id="fpi_indicator_root" class="container">
-    <h4><a id="fpi_indicator_root__back">Back</a> &gt; <?php the_field('name') ?></h4>
+    <h3><a id="fpi_indicator_root__back">Back</a> &gt; <?php the_field('name') ?></h3>
     <div id="fpi_indicator_root__hero">
       <div id="fpi_indicator_root__hero__workaround">
         <svg
