@@ -1,6 +1,14 @@
 import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from './configureStore';
 import './index.css';
 
-ReactDOM.render(<div>hello</div>, document.getElementById('root'));
+const store = configureStore();
+render(
+  <Provider store={store}>
+    <div>hello</div>
+  </Provider>,
+  document.getElementById('root')
+);
