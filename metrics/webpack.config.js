@@ -7,8 +7,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = env => ({
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   devtool: env === 'production' ? 'source-map' : 'cheap-eval-source-map',
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   output: {
     filename: env === 'production' ? '[name].[chunkhash].bundle.js' : '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -16,11 +19,11 @@ module.exports = env => ({
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['es2015'],
+          presets: ['es2015', 'react'],
           plugins: ['syntax-dynamic-import'],
         },
       },
