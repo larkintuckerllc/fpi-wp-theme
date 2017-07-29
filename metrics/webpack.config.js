@@ -1,9 +1,15 @@
+// eslint-disable-next-line
 const webpack = require('webpack');
 const path = require('path');
+// eslint-disable-next-line
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+// eslint-disable-next-line
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// eslint-disable-next-line
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// eslint-disable-next-line
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+// eslint-disable-next-line
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = env => ({
@@ -24,7 +30,10 @@ module.exports = env => ({
         loader: 'babel-loader',
         options: {
           presets: ['es2015', 'react'],
-          plugins: ['syntax-dynamic-import'],
+          plugins: [
+            'syntax-dynamic-import',
+            ['lodash', { id: ['lodash', 'recompose'] }],
+          ],
         },
       },
       {
