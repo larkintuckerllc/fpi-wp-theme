@@ -37,7 +37,9 @@ const Layer = enhance(({ children, depth, id, isOpen, name, toggleIsOpen }) => (
       }}
     >
       <div className={styles.rootNameText}>{name}</div>
-      <div>R</div>
+      {children.length !== 0
+      && <div className={`${styles.rootNameToggle} ${isOpen ? styles.rootNameToggleOpen : styles.rootNameToggleClosed}`} />
+      }
     </div>
     {children.length !== 0 && isOpen &&
       <ul className={styles.rootChildren}>
