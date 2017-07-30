@@ -2,7 +2,7 @@
 export const ACTION_PREFIX = 'app/';
 export const LAYERS = [{
   id: 0,
-  name: 'A jadj adsjf asd jfj  asdfj asd fkjsaj asdjasdjs j asd asdfjsfjasj ajfk jsf',
+  name: 'A',
 }, {
   id: 1,
   name: 'B',
