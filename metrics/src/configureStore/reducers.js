@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import demo from '../ducks/demo';
+import isOpen from '../ducks/isOpen';
 
 export default combineReducers({
-  demo,
+  isOpen,
 });

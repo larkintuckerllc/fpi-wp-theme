@@ -31,6 +31,7 @@ module.exports = env => ({
         options: {
           presets: ['es2015', 'react'],
           plugins: [
+            'transform-object-rest-spread',
             'syntax-dynamic-import',
             ['lodash', { id: ['lodash', 'recompose'] }],
           ],
