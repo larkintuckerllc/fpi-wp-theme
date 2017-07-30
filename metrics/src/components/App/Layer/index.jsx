@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { compose, pure, setDisplayName, setPropTypes } from 'recompose';
+import { compose, pure, setDisplayName, setPropTypes, withProps } from 'recompose';
 import * as fromIsOpen from '../../../ducks/isOpen';
 import { LAYERS } from '../../../strings';
 import styles from './index.css';
@@ -16,7 +16,9 @@ const enhance = compose(
     }
   ),
   pure,
+  withProps(({ id }) => ({ children: LAYERS.filter(o => o.parent === id) })),
   setPropTypes({
+    children: PropTypes.array.isRequired,
     depth: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
     isOpen: PropTypes.bool.isRequired,
@@ -25,18 +27,21 @@ const enhance = compose(
   }),
   setDisplayName('Layer')
 );
-const Layer = enhance(({ depth, id, isOpen, name, toggleIsOpen }) => (
+const Layer = enhance(({ children, depth, id, isOpen, name, toggleIsOpen }) => (
   <li className={styles.root}>
     <div
       className={`${styles.rootName} ${styles[`rootName${depth.toString()}`]}`}
-      onClick={() => toggleIsOpen(id)}
+      onClick={() => {
+        if (children.length === 0) return;
+        toggleIsOpen(id);
+      }}
     >
-      {name}
+      <div className={styles.rootNameText}>{name}</div>
+      <div>R</div>
     </div>
-    {isOpen &&
+    {children.length !== 0 && isOpen &&
       <ul className={styles.rootChildren}>
-        {LAYERS
-        .filter(o => o.parent === id)
+        {children
         .map(o => <Layer key={o.id} id={o.id} name={o.name} depth={depth + 1} />)
         }
       </ul>

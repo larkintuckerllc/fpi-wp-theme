@@ -1,8 +1,17 @@
 #root {
 }
 .rootName {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border-bottom-left-radius: 10px;
+}
+.rootNameText {
+  margin-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .rootName0 {
   background-color: rgb(128,128,255);
