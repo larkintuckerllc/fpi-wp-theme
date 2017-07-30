@@ -38,6 +38,7 @@ const Layer = enhance(({ children, depth, id, isOpen, name, toggleIsOpen }) => (
     >
       <div className={styles.rootNameText}>{name}</div>
       {children.length !== 0
+      // eslint-disable-next-line
       && <div className={`${styles.rootNameToggle} ${isOpen ? styles.rootNameToggleOpen : styles.rootNameToggleClosed}`} />
       }
     </div>
