@@ -18,4 +18,8 @@ export const LAYERS = [{
   id: 4,
   name: 'banana',
   parent: 1,
+}, {
+  id: 5,
+  name: 'fuji',
+  parent: 2,
 }];
