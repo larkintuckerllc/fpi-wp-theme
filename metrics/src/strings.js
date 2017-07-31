@@ -5,7 +5,7 @@ export const LAYERS = [{
   name: 'A',
 }, {
   id: 1,
-  name: 'B',
+  name: 'B jadsf jkasdf  asdjf asdjf asdfjf asdlfj asldkfj asd jfkjasd fj as asdfkjasd jfasjd fdasf jf',
 }, {
   id: 2,
   name: 'apple',

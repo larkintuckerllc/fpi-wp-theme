@@ -12,5 +12,6 @@ export default enhance(() => (
   <ul id={styles.root}>
     <Layer id={0} name={LAYERS[0].name} depth={0} />
     <Layer id={1} name={LAYERS[1].name} depth={0} />
+    <Layer id={1} name={LAYERS[1].name} depth={0} />
   </ul>
 ));

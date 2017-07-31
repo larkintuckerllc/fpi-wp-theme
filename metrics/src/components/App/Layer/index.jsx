@@ -28,7 +28,7 @@ const enhance = compose(
   setDisplayName('Layer')
 );
 const Layer = enhance(({ children, depth, id, isOpen, name, toggleIsOpen }) => (
-  <li className={styles.root}>
+  <li className={`${styles.root} ${depth === 0 ? styles.rootZero : ''}`}>
     <div
       className={`${styles.rootName} ${styles[`rootName${depth.toString()}`]}`}
       onClick={() => {

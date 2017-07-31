@@ -19,7 +19,7 @@ module.exports = env => ({
   devtool: env === 'production' ? 'source-map' : 'cheap-eval-source-map',
   entry: './src/index.jsx',
   output: {
-    filename: env === 'production' ? '[name].[chunkhash].bundle.js' : '[name].bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -73,7 +73,7 @@ module.exports = env => ({
   },
   plugins: [
     new UglifyJSPlugin({ sourceMap: true }),
-    new ExtractTextPlugin('styles.[contenthash].css'),
+    new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html'),
     }),
