@@ -1,8 +1,8 @@
 #root {
+  display: block;
 }
-.rootZero {
+.rootZero:not(:first-child) {
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 .rootName {
   display: flex;
@@ -48,10 +48,10 @@
 @media (min-width: 992px) {
   .rootZero {
     flex: 1 1 auto;
-    margin-left: 20px;
     width: 0px;
   }
-  .rootZero:first-child {
-    margin-left: 0px;
+  .rootZero:not(:first-child) {
+    margin-left: 20px;
+    margin-top: 0px;
   }
 }
