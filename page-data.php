@@ -7,7 +7,7 @@
     wp_register_script('fpi_data_main',
       get_template_directory_uri() .
       '/data/dist/main.bundle.js',
-      array('fpi_data_vendor'), '2017020101', true);
+      array('fpi_data_vendor'), '2017080201', true);
     wp_enqueue_script('fpi_data_vendor');
     wp_enqueue_script('fpi_data_main');
   }
@@ -38,11 +38,12 @@
   endwhile;
   wp_reset_query();
 ?>
+<?php while (have_posts()) : the_post(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>fpi</title>
+  <title><?php wp_title('&raquo;','true','right'); ?>FPI Lab</title>
   <?php wp_head() ?>
   <style>
     html, body {
@@ -105,3 +106,4 @@
   <?php wp_footer() ?>
 </body>
 </html>
+<?php endwhile; ?>

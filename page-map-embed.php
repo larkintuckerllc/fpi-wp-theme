@@ -35,6 +35,7 @@
   endwhile;
   wp_reset_query();
 ?>
+<?php while (have_posts()) : the_post(); ?>
 <?php get_header(); ?>
 <div id="root"></div>
 <script>
@@ -43,3 +44,4 @@
   window.fpiEmbed = true;
 </script>
 <?php get_footer(); ?>
+<?php endwhile; ?>

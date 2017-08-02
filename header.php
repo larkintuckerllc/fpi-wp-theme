@@ -5,7 +5,7 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>fpi</title>
+    <title><?php wp_title('&raquo;','true','right'); ?>FPI Lab</title>
     <?php wp_head() ?>
   </head>
   <body

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="my_page" class="container">
+<div class="container">
   <h3>News</h3>
   <?php while (have_posts()) : the_post(); ?>
       <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>

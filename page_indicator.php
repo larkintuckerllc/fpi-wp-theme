@@ -45,10 +45,8 @@
   endwhile;
   wp_reset_query();
 ?>
-<?php
-  get_header();
-?>
 <?php while (have_posts()) : the_post(); ?>
+<?php get_header(); ?>
   <div id="fpi_indicator_root" class="container">
     <h3><a id="fpi_indicator_root__back">Back</a> &gt; <?php the_field('name') ?></h3>
     <div id="fpi_indicator_root__hero">

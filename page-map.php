@@ -35,6 +35,7 @@
   endwhile;
   wp_reset_query();
 ?>
+<?php while (have_posts()) : the_post(); ?>
 <?php get_header(); ?>
 <div class="container">
   <h3>Map</h3>
@@ -45,3 +46,4 @@
   window.baseUrl = '<?php echo get_template_directory_uri(); ?>/map/dist/';
 </script>
 <?php get_footer(); ?>
+<?php endwhile; ?>
