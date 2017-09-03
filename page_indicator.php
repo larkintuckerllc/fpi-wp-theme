@@ -155,11 +155,15 @@
       <div
         id="fpi_indicator_root__content__overview"
       >
-        <p><b>Species:</b> <?php the_field('species') ?></p>
         <div
           id="fpi_indicator_root__content__overview__description"
         >
           <?php the_field('description') ?>
+        </div>
+        <div
+          id="fpi_indicator_root__content__overview__custom"
+        >
+          <?php the_field('custom') ?>
         </div>
       </div>
     </div>

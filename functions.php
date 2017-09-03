@@ -201,6 +201,15 @@
     				'toolbar' => 'full',
     				'media_upload' => 'no',
     			),
+          array (
+            'key' => 'field_fpi_indicator_custom',
+            'label' => 'Custom',
+            'name' => 'custom',
+            'type' => 'wysiwyg',
+            'default_value' => '',
+            'toolbar' => 'full',
+            'media_upload' => 'yes',
+          ),
     		),
     		'location' => array (
     			array (
