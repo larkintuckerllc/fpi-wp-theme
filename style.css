@@ -68,6 +68,9 @@ body {
 #home_body__news {
   margin-top: 40px;
 }
+.home_body__news__item {
+  margin-bottom: 40px;
+}
 .home_body__news__item__image {
   height: 200px;
   background-color: rgb(204, 204, 204);
@@ -88,4 +91,21 @@ body {
 }
 #dev__root__message {
   transform: rotate(-45deg);
+}
+.archive__root__news__item {
+  clear: both;
+  margin-bottom: 20px;
+}
+.archive__root__news__item__image {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: auto;
+}
+.single__root__image {
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

@@ -297,6 +297,7 @@
       exit();
     }
   }
+  add_theme_support( 'post-thumbnails' ); 
   add_action( 'init', 'fpi_create_post_type_data_custom' );
   add_action('wp_enqueue_scripts', 'fpi_add_theme_scripts');
   add_action( 'init', 'fpi_create_post_type_indicator' );

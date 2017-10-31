@@ -27,31 +27,20 @@
     </div>
   </div>
   <div id="home_body__news" class="row">
-    <div class="col-sm-3">
-      <div
-        style="background-image: url('<?php echo get_template_directory_uri() . '/img/seafood.jpg'; ?>');"
-        class="home_body__news__item__image"
-      ></div>
-      <p>Donec id elit non mi porta gravida at eget metus.</p>
-    </div>
-    <div class="col-sm-3">
-      <div
-        class="home_body__news__item__image"
-      ></div>
-      <p>Donec id elit non mi porta gravida at eget metus.</p>
-    </div>
-    <div class="col-sm-3">
-      <div
-        class="home_body__news__item__image"
-      ></div>
-      <p>Donec id elit non mi porta gravida at eget metus.</p>
-    </div>
-    <div class="col-sm-3">
-      <div
-        class="home_body__news__item__image"
-      ></div>
-      <p>Donec id elit non mi porta gravida at eget metus.</p>
-    </div>
+    <?php $temp_query = $wp_query; ?>
+    <?php query_posts( 'category_name=News&posts_per_page=4' ); ?>
+    <?php while ( have_posts() ) : the_post(); ?>
+      <div class="home_body__news__item col-sm-3">
+        <div
+          <?php if ( has_post_thumbnail() ): ?>
+          style="background-image: url('<?php the_post_thumbnail_url('medium-large'); ?>');"
+          <?php endif ?>
+          class="home_body__news__item__image"
+        ></div>
+        <?php the_excerpt(); ?>
+      </div>
+    <?php endwhile; ?>
+    <?php $wp_query = $temp_query; ?>
   </div>
 </div>
 <?php get_footer(); ?>
