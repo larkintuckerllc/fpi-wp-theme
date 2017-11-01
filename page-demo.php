@@ -4,7 +4,7 @@
   style="background-image: url(<?php echo get_template_directory_uri() . '/img/hero.jpg'; ?>);"
 >
   <div id="home_body__hero" class="container">
-    <div id="home_body__hero__image" class="visible-md-block">
+    <div id="home_body__hero__image" class="visible-md-block visible-lg-block">
       <img src="<?php echo get_template_directory_uri() . '/img/james_anderson.jpg'; ?>" />
     </div>
     <div>
