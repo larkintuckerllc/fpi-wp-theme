@@ -8,8 +8,9 @@
       <img src="<?php echo get_template_directory_uri() . '/img/james_anderson.jpg'; ?>" />
     </div>
     <div>
-      <h1>Jim Anderson</h1>
-      <p>Professor and Director, Institute for Sustainable Food Systems</p>
+      <h1>James L. Anderson</h1>
+      <p>Director, Institute for Sustainable Food Systems, University of Florida<br />
+      Professor, Food and Resource Economics, University of Florida</p>
     </div>
   </div>
 </div>
@@ -24,6 +25,7 @@
           style="background-image: url('<?php the_post_thumbnail_url('medium-large'); ?>');"
           <?php endif ?>
           class="home_body__news__item__image"
+          onclick="window.location.assign('<?php the_permalink(); ?>')"
         ></div>
         <?php the_excerpt(); ?>
       </div>
