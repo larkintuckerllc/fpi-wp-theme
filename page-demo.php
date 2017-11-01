@@ -3,29 +3,17 @@
   class="jumbotron"
   style="background-image: url(<?php echo get_template_directory_uri() . '/img/hero.jpg'; ?>);"
 >
-  <div class="container">
-    <h1>Placeholder</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+  <div id="home_body__hero" class="container">
+    <div id="home_body__hero__image" class="visible-md-block">
+      <img src="<?php echo get_template_directory_uri() . '/img/james_anderson.jpg'; ?>" />
+    </div>
+    <div>
+      <h1>Jim Anderson</h1>
+      <p>Professor and Director, Institute for Sustainable Food Systems</p>
+    </div>
   </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Map</h3>
-      <p>Donec id elit non mi porta gravida at eget metus.</p>
-      <p><a class="btn btn-default" href="map" role="button">View details &raquo;</a></p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Data</h3>
-      <p>Donec id elit non mi porta gravida at eget metus.</p>
-      <p><a class="btn btn-default" href="data" role="button">View details &raquo;</a></p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Methodogy</h3>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-      <p><a class="btn btn-default" href="methodology" role="button">View details &raquo;</a></p>
-    </div>
-  </div>
   <div id="home_body__news" class="row">
     <?php $temp_query = $wp_query; ?>
     <?php query_posts( 'category_name=News&posts_per_page=4' ); ?>
