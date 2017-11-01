@@ -22,7 +22,7 @@
       <div class="home_body__news__item col-sm-3">
         <div
           <?php if ( has_post_thumbnail() ): ?>
-          style="background-image: url('<?php the_post_thumbnail_url('medium-large'); ?>');"
+          style="background-image: url('<?php the_post_thumbnail_url('large'); ?>');"
           <?php endif ?>
           class="home_body__news__item__image"
           onclick="window.location.assign('<?php the_permalink(); ?>')"
