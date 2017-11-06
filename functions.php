@@ -297,7 +297,12 @@
       exit();
     }
   }
-  add_theme_support( 'post-thumbnails' ); 
+  function fpi_pre_get_posts( $query ) {
+    if ( $query->is_archive() && $query->is_main_query() && !is_admin() ) {
+      $query->set( 'posts_per_page', 1000 );
+    }
+  }
+  add_theme_support( 'post-thumbnails' );
   add_action( 'init', 'fpi_create_post_type_data_custom' );
   add_action('wp_enqueue_scripts', 'fpi_add_theme_scripts');
   add_action( 'init', 'fpi_create_post_type_indicator' );
@@ -306,3 +311,4 @@
   add_action( 'init', 'fpi_add_rewrite_rules' );
   add_action( 'query_vars', 'fpi_query_vars' );
   add_action( 'parse_request', 'fpi_parse_request' );
+  add_action( 'pre_get_posts', 'fpi_pre_get_posts' );
