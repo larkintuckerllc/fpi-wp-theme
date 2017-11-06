@@ -86,7 +86,7 @@
   </div>
   <div id="frame">
     <div class="frame-header container">
-      <h3>Data</h3>
+      <h3><?php the_title(); ?></h3>
     </div>
     <div id="root" class="container">
     </div>
