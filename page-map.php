@@ -38,7 +38,7 @@
 <?php while (have_posts()) : the_post(); ?>
 <?php get_header(); ?>
 <div class="container">
-  <h3>Map</h3>
+  <h3><?php the_title(); ?></h3>
 </div>
 <div id="root"></div>
 <script>

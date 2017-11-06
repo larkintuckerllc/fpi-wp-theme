@@ -26,7 +26,7 @@
 <?php while (have_posts()) : the_post(); ?>
 <?php get_header(); ?>
 <div class="container">
-  <h3>Methodology</h3>
+  <h3><?php the_title(); ?></h3>
   <?php the_content(); ?>
   <div id="root"></div>
   <?php the_field('below_metrics'); ?>
