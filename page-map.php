@@ -7,7 +7,7 @@
     wp_register_script('fpi_map_main',
       get_template_directory_uri() .
       '/map/dist/main.bundle.js',
-      array('fpi_map_vendor'), '2017020101', true);
+      array('fpi_map_vendor'), '2017110603', true);
     wp_enqueue_script('fpi_map_vendor');
     wp_enqueue_script('fpi_map_main');
   }
