@@ -1,4 +1,101 @@
 <?php
+  function fpi_create_post_type_menus() {
+    $labels = array(
+     'name' => __( 'Menu Choices', 'fpi' ),
+     'singular_name' => __( 'Menu Choice', 'fpi' ),
+     'add_new' => __( 'Add New' , 'fpi' ),
+     'add_new_item' => __( 'Add New Menu Choice' , 'fpi' ),
+     'edit_item' =>  __( 'Edit Menu Choice' , 'fpi' ),
+     'new_item' => __( 'New Menu Choice' , 'fpi' ),
+     'view_item' => __('View Menu Choice', 'fpi'),
+     'search_items' => __('Search Menu Choice', 'fpi'),
+     'not_found' =>  __('No Menu Choices found', 'fpi'),
+     'not_found_in_trash' => __('No Menu Choices found in Trash', 'fpi'),
+    );
+    register_post_type( 'fpi_menu',
+      array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-list-view',
+      )
+    );
+    if ( function_exists( 'register_field_group' ) ) {
+    	register_field_group(array (
+    		'id' => 'acf_test',
+    		'title' => 'Test',
+    		'fields' => array (
+    			array (
+    				'key' => 'field_fpi_menu_name',
+    				'label' => 'Name',
+    				'name' => 'name',
+    				'type' => 'text',
+    				'required' => 1,
+    				'default_value' => '',
+    				'placeholder' => '',
+    				'prepend' => '',
+    				'append' => '',
+    				'formatting' => 'html',
+    				'maxlength' => '',
+    			),
+    			array (
+    				'key' => 'field_fpi_menu_url',
+    				'label' => 'URL',
+    				'name' => 'url',
+    				'type' => 'text',
+    				'required' => 1,
+    				'default_value' => '',
+    				'placeholder' => '',
+    				'prepend' => '',
+    				'append' => '',
+    				'formatting' => 'html',
+    				'maxlength' => '',
+    			),
+    			array (
+    				'key' => 'field_fpi_menu_image',
+    				'label' => 'Image',
+    				'name' => 'image',
+    				'type' => 'image',
+    				'required' => 1,
+    				'save_format' => 'url',
+    				'preview_size' => 'thumbnail',
+    				'library' => 'all',
+    			),
+    		),
+    		'location' => array (
+    			array (
+    				array (
+    					'param' => 'post_type',
+    					'operator' => '==',
+    					'value' => 'fpi_menu',
+    					'order_no' => 0,
+    					'group_no' => 0,
+    				),
+    			),
+    		),
+    		'options' => array (
+    			'position' => 'normal',
+    			'layout' => 'no_box',
+    			'hide_on_screen' => array (
+    				0 => 'permalink',
+    				1 => 'the_content',
+    				2 => 'excerpt',
+    				3 => 'discussion',
+    				4 => 'comments',
+    				5 => 'revisions',
+    				6 => 'slug',
+    				7 => 'author',
+    				8 => 'format',
+    				9 => 'featured_image',
+    				10 => 'categories',
+    				11 => 'tags',
+    				12 => 'send-trackbacks',
+    			),
+    		),
+    		'menu_order' => 0,
+    	));
+    }
+  }
   function fpi_create_post_type_data_custom() {
     $labels = array(
      'name' => __( 'Custom Choices', 'fpi' ),
@@ -304,6 +401,7 @@
   }
   add_theme_support( 'post-thumbnails' );
   add_action( 'init', 'fpi_create_post_type_data_custom' );
+  add_action( 'init', 'fpi_create_post_type_menus' );
   add_action('wp_enqueue_scripts', 'fpi_add_theme_scripts');
   add_action( 'init', 'fpi_create_post_type_indicator' );
   add_action( 'init', 'fpi_register_my_menus' );
