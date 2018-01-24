@@ -33,7 +33,6 @@
   .frame__container__item__image {
     width: 300px;
     height: 300px;
-    background-color: yellow;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,7 +43,7 @@
   }
   .frame__container__item__name__text {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     white-space: nowrap;
     overflow: hidden;
   }
@@ -61,7 +60,8 @@
       $args = array(
         'post_type' => 'fpi_menu',
         'posts_per_page' => -1,
-        'orderby' => 'title'
+        'orderby' => 'title',
+        'order' => 'ASC'
       );
       $loop = new WP_Query( $args );
       while ( $loop->have_posts() ) : $loop->the_post();
