@@ -78,6 +78,24 @@
           <?php endif; ?>
         </div>
       <?php endif; ?>
+      <?php if( get_field('highlight_4_image') ): ?>
+        <div class="home_body__news__item col-sm-3">
+          <div
+            style="background-image: url('<?php the_field('highlight_4_image'); ?>');"
+            class="home_body__news__item__image"
+            <?php if( get_field('highlight_4_url') ): ?>
+              onclick="window.location.assign('<?php the_field('highlight_4_url'); ?>')"
+            <?php endif; ?>
+          >
+          </div>
+          <?php if( get_field('highlight_4_title') ): ?>
+            <div><b><?php the_field('highlight_4_title'); ?></b></div>
+          <?php endif; ?>
+          <?php if( get_field('highlight_4_subtitle') ): ?>
+            <div><?php the_field('highlight_4_subtitle'); ?></div>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 <?php endwhile; ?>
