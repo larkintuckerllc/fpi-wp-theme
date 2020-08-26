@@ -1,19 +1,28 @@
 <?php get_header(); ?>
+<?php while (have_posts()) : the_post(); ?>
 <div
   class="jumbotron"
-  style="background-image: url(<?php echo get_template_directory_uri() . '/img/hero.jpg'; ?>);"
+  <?php if( get_field('hero_background') ): ?>
+    style="background-image: url(<?php the_field('hero_background'); ?>);"
+  <?php endif; ?>
 >
   <div id="home_body__hero" class="container">
-    <div id="home_body__hero__image" class="visible-md-block visible-lg-block">
-      <img src="<?php echo get_template_directory_uri() . '/img/james_anderson.jpg'; ?>" />
-    </div>
+    <?php if( get_field('hero_image') ): ?>
+      <div id="home_body__hero__image" class="visible-md-block visible-lg-block">
+        <img src="<?php the_field('hero_image'); ?>" />
+      </div>
+    <?php endif; ?>
     <div>
-      <h1>James L. Anderson</h1>
-      <p>Director, Institute for Sustainable Food Systems, University of Florida<br />
-      Professor, Food and Resource Economics, University of Florida</p>
+      <?php if( get_field('hero_title') ): ?>
+        <h1><?php the_field('hero_title'); ?></h1>
+      <?php endif; ?>
+      <?php if( get_field('hero_subtitle') ): ?>
+        <p><?php the_field('hero_subtitle'); ?></p>
+      <?php endif; ?>
     </div>
   </div>
 </div>
+<?php endwhile; ?>
 <div class="container">
   <div id="home_body__news" class="row">
     <?php $temp_query = $wp_query; ?>
