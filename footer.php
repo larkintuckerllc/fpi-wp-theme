@@ -2,7 +2,7 @@
       <div id="my_footer" class="container">
         <hr>
         <footer>
-          <p>&copy; 2017</p>
+          <p>&copy; 2020</p>
         </footer>
       </div>
     <?php endif; ?>
