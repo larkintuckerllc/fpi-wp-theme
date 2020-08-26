@@ -55,8 +55,26 @@
           <?php if( get_field('highlight_2_title') ): ?>
             <div><b><?php the_field('highlight_2_title'); ?></b></div>
           <?php endif; ?>
-          <?php if( get_field('highlight_1_subtitle') ): ?>
+          <?php if( get_field('highlight_2_subtitle') ): ?>
             <div><?php the_field('highlight_2_subtitle'); ?></div>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
+      <?php if( get_field('highlight_3_image') ): ?>
+        <div class="home_body__news__item col-sm-3">
+          <div
+            style="background-image: url('<?php the_field('highlight_3_image'); ?>');"
+            class="home_body__news__item__image"
+            <?php if( get_field('highlight_3_url') ): ?>
+              onclick="window.location.assign('<?php the_field('highlight_3_url'); ?>')"
+            <?php endif; ?>
+          >
+          </div>
+          <?php if( get_field('highlight_3_title') ): ?>
+            <div><b><?php the_field('highlight_3_title'); ?></b></div>
+          <?php endif; ?>
+          <?php if( get_field('highlight_3_subtitle') ): ?>
+            <div><?php the_field('highlight_3_subtitle'); ?></div>
           <?php endif; ?>
         </div>
       <?php endif; ?>
