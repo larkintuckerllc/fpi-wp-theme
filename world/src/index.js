@@ -77,7 +77,10 @@ rootTile.appendChild(rootTileImage);
 rootEl.appendChild(rootTile);
 
 // LEAFLET
-map = L.map('root__map').setView([0, 0], initialZoom(window.innerWidth));
+map = L.map('root__map', { zoomControl: false }).setView([0, 0], initialZoom(window.innerWidth));
+L.control.zoom({
+  position: 'bottomright'
+}).addTo(map);
 tileLayer = L.tileLayer(
   'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   {
