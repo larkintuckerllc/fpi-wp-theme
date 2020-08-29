@@ -16,7 +16,7 @@
 <?php
   $indicators = array();
   $args = array(
-    'post_type' => 'fpi_indicator',
+    'post_type' => 'fpi_api',
     'posts_per_page' => -1,
   );
   $loop = new WP_Query( $args );
