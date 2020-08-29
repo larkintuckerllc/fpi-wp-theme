@@ -571,6 +571,9 @@
 		if ($post->post_type == 'fpi_indicator'){
 			return  get_template_directory() . '/page_indicator.php';
 		}
+		if ($post->post_type == 'fpi_api'){
+			return  get_template_directory() . '/page_api.php';
+		}
 		return $single;
 	}
   function fpi_add_theme_scripts() {
