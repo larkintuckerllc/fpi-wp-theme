@@ -118,18 +118,18 @@
       )
     );
   }
-  function fpi_create_post_type_indicator() {
+  function fpi_create_post_type_fpi() {
     $labels = array(
-     'name' => __( 'Indicators', 'fpi' ),
-     'singular_name' => __( 'Indicator', 'fpi' ),
+     'name' => __( 'FPI Indicators', 'fpi' ),
+     'singular_name' => __( 'FPI Indicator', 'fpi' ),
      'add_new' => __( 'Add New' , 'fpi' ),
-     'add_new_item' => __( 'Add New Indicator' , 'fpi' ),
-     'edit_item' =>  __( 'Edit Indicator' , 'fpi' ),
-     'new_item' => __( 'New Indicator' , 'fpi' ),
-     'view_item' => __('View Indicator', 'fpi'),
-     'search_items' => __('Search Indicators', 'fpi'),
-     'not_found' =>  __('No Indicators found', 'fpi'),
-     'not_found_in_trash' => __('No Indicators found in Trash', 'fpi'),
+     'add_new_item' => __( 'Add New FPI Indicator' , 'fpi' ),
+     'edit_item' =>  __( 'Edit FPI Indicator' , 'fpi' ),
+     'new_item' => __( 'New FPI Indicator' , 'fpi' ),
+     'view_item' => __('View FPI Indicator', 'fpi'),
+     'search_items' => __('Search FPI Indicators', 'fpi'),
+     'not_found' =>  __('No FPI Indicators found', 'fpi'),
+     'not_found_in_trash' => __('No FPI Indicators found in Trash', 'fpi'),
     );
     register_post_type( 'fpi_indicator',
       array(
@@ -403,7 +403,7 @@
   add_action( 'init', 'fpi_create_post_type_data_custom' );
   add_action( 'init', 'fpi_create_post_type_menus' );
   add_action('wp_enqueue_scripts', 'fpi_add_theme_scripts');
-  add_action( 'init', 'fpi_create_post_type_indicator' );
+  add_action( 'init', 'fpi_create_post_type_fpi' );
   add_action( 'init', 'fpi_register_my_menus' );
   add_action( 'single_template', 'fpi_single_template');
   add_action( 'init', 'fpi_add_rewrite_rules' );
