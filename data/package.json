@@ -30,7 +30,7 @@
     "imports-loader": "^0.6.5",
     "install": "^0.8.4",
     "node-sass": "^3.10.0",
-    "npm": "^4.1.1",
+    "npm": "^6.14.6",
     "postcss-loader": "^0.13.0",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.2",
