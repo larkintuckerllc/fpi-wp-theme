@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/larkintuckerllc/fpi-wp-theme#readme",
   "dependencies": {
-    "d3": "^4.7.1",
+    "d3": "^7.6.1",
     "d3-geo": "^1.6.1"
   }
 }
